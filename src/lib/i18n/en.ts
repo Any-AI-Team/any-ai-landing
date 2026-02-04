@@ -39,6 +39,27 @@ export const EN = {
     faqSection: {
         title: "Everything you need to\nknow about ANYCALL",
     },
+    showcase: {
+        title: "See ANY AI\nin Action",
+        subtitle: "Experience how ANY AI transforms customer interactions across languages, time zones, and systems.",
+    },
+    showcaseSections: [
+        {
+            title: "Natural Communication",
+            body: "Handle calls in any language—Thai, English, or Chinese. The AI detects the caller's language instantly and responds fluently.",
+            metric: "Zero latency translation",
+        },
+        {
+            title: "Always On, 24/7",
+            body: "Don't let business hours limit your revenue. Whether it's midnight or a holiday, ANY AI captures every opportunity while you sleep.",
+            metric: "100% Response Rate",
+        },
+        {
+            title: "Seamless Integration",
+            body: "Works with your existing tools. We plug directly into your CRM, POS, or LINE OA so you don't have to change how you work.",
+            metric: "Setup in < 5 minutes",
+        },
+    ],
     ctaSection: {
         title: "Ready To Transform Your Business Communication?",
         subtitle: "Everything your business needs for effortless, intelligent communication",
