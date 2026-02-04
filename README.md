@@ -1,4 +1,4 @@
-# 🛠️ ANYCALL - Developer Handoff Guide
+# 🛠️ ANYCALL - Landing Page (V2)
 
 > **Project**: ANYCALL Landing Page
 > **Framework**: Next.js 16.1 (App Router)
@@ -6,7 +6,54 @@
 > **Language**: TypeScript 5.8
 > **State Management**: React Context + Hooks
 
-เอกสารนี้รวบรวมรายละเอียดทางเทคนิคทั้งหมด (Deep Dive) เพื่อให้ Developer สามารถเข้าใจโครงสร้างที่ซับซ้อนและพัฒนาต่อได้อย่างรวดเร็ว
+This is the landing page for ANYCALL. The main application (dashboard, login, registration) is in the parent `anycaller-frontend` directory.
+
+---
+
+## 🚀 Quick Start
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Update `.env.local` with:
+   - `NEXT_PUBLIC_MAIN_APP_URL` - URL of the main application (default: http://localhost:3001)
+   - `RESEND_API_KEY` - For contact form emails
+
+3. **Run development server**
+   ```bash
+   npm run dev
+   # or
+   bun dev
+   ```
+
+4. **Open** [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🔗 Integration with Main App
+
+This landing page integrates with the main `anycaller-frontend` application:
+
+- **Login/Signup buttons** redirect to `NEXT_PUBLIC_MAIN_APP_URL/login` and `/register`
+- **After login**, users are redirected to `NEXT_PUBLIC_MAIN_APP_URL/dashboard`
+- The main app's root page (`/`) redirects to `/dashboard` for logged-in users
+
+### Environment Variables
+
+Required in `.env.local`:
+```env
+NEXT_PUBLIC_MAIN_APP_URL=http://localhost:3001  # Main app URL (adjust for production)
+RESEND_API_KEY=re_your_api_key_here             # For contact forms
+```
 
 ---
 
@@ -31,7 +78,7 @@
 src/
 ├── app/                      # Routing & Layouts
 │   ├── layout.tsx            # Root Layout (Fonts, Metadata, Providers)
-│   ├── page.tsx              # Homepage Composition
+│   ├── page.tsx              # Homepage Composition (with Pricing)
 │   ├── globals.css           # Global Styles & CSS Variables
 │   ├── contact/              # '/contact' route
 │   ├── robots.ts             # SEO: Robots.txt generation
@@ -39,8 +86,9 @@ src/
 │
 ├── components/
 │   ├── landing/              # Components เฉพาะ Landing Page (Business Logic)
-│   │   ├── navbar.tsx        # Complex Navigation with Glassmorphism
+│   │   ├── navbar.tsx        # Complex Navigation (links to main app)
 │   │   ├── hero.tsx          # Hero Section with animations
+│   │   ├── pricing.tsx       # Pricing section with bilingual support
 │   │   ├── use-cases.tsx     # Card-based layout with shadows
 │   │   └── ...
 │   │

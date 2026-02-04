@@ -4,10 +4,11 @@ import { Hero } from "@/components/landing/hero";
 import { ValueProposition } from "@/components/landing/value-proposition";
 import { UseCases } from "@/components/landing/use-cases";
 import { Features } from "@/components/landing/features";
+import { Pricing } from "@/components/landing/pricing";
 import { FAQ } from "@/components/landing/faq";
 import { CTA } from "@/components/landing/cta";
 import { Footer } from "@/components/landing/footer";
-
+import { Integration } from "@/components/landing/integration";
 export default function Index() {
     return (
         <main className="min-h-screen bg-background overflow-x-hidden">
@@ -15,7 +16,9 @@ export default function Index() {
                 <Hero />
                 <ValueProposition />
                 <UseCases />
+                <Integration />
                 <Features />
+                <Pricing />
                 <FAQ />
                 <CTA />
                 <Footer />
