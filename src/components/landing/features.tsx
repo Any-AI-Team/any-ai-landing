@@ -10,15 +10,15 @@ export const Features = () => {
   const { features, t } = useLanguage();
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-background">
-      <div className="section-container">
+    <section ref={ref} className="py-12 md:py-16 lg:py-24 bg-background">
+      <div className="section-container px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-h2 text-foreground text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-h2 text-foreground text-left">
             {t.featuresSection.title.split('\n').map((line, index) => (
               <span key={index}>
                 {line}

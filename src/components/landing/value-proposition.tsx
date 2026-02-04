@@ -13,17 +13,18 @@ export const ValueProposition = () => {
   const router = useRouter();
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-background" id="platform">
-      <div className="section-container">
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
+    <section ref={ref} className="py-12 md:py-16 lg:py-24 bg-background" id="platform">
+      <div className="section-container px-4 sm:px-6 md:px-8">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16 items-start">
           {/* Left Column: Title & CTA */}
-          <div className="lg:w-5/12 lg:sticky lg:top-32">
+          <div className="lg:w-5/12 lg:sticky lg:top-32 w-full">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1.2, ease: "easeOut" }}
+              className="text-center lg:text-left"
             >
-              <h2 className="text-3xl md:text-5xl font-semibold leading-tight mb-8 text-foreground">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-6 md:mb-8 text-foreground">
                 {t.valueProp.title.split('\n').map((line, index) => (
                   <span key={index}>
                     {line}
@@ -33,7 +34,7 @@ export const ValueProposition = () => {
               </h2>
               <Button
                 onClick={() => router.push("/contact")}
-                className="rounded-full bg-black text-white px-6 py-2 text-sm md:px-6 md:py-6 md:text-lg hover:bg-black/90 transition-all w-[130px]"
+                className="rounded-full bg-black text-white px-6 py-3 text-sm sm:px-8 sm:py-4 md:px-8 md:py-6 md:text-lg hover:bg-black/90 transition-all w-auto min-w-[130px] mx-auto lg:mx-0"
               >
                 {t.valueProp.cta}
               </Button>
@@ -41,7 +42,7 @@ export const ValueProposition = () => {
           </div>
 
           {/* Right Column: Feature Cards */}
-          <div className="lg:w-7/12 flex flex-col gap-6">
+          <div className="lg:w-7/12 flex flex-col gap-4 md:gap-6 w-full">
             {valueFeatures.map((feature, index) => (
               <motion.div
                 key={index}

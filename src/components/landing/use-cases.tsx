@@ -27,14 +27,14 @@ export const UseCases = () => {
   };
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-section-bg overflow-hidden" id="use-cases">
-      <div className="section-container mb-12">
+    <section ref={ref} className="py-12 md:py-16 lg:py-24 bg-section-bg overflow-hidden" id="use-cases">
+      <div className="section-container mb-8 md:mb-12 px-4 sm:px-6 md:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-h2 font-semibold text-foreground text-left"
-        >
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-h2 font-semibold text-foreground text-left">
+        
           {t.useCases.title.split('\n').map((line, index) => (
             <span key={index}>
               {line}

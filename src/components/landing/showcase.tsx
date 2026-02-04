@@ -279,8 +279,8 @@ export const Showcase = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative bg-white py-32 md:py-48 lg:py-56">
-      <div className="container mx-auto px-6 md:px-8 lg:px-12">
+    <section className="relative bg-white py-16 md:py-24 lg:py-32 xl:py-40">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           
           {/* Section Header */}
@@ -289,29 +289,29 @@ export const Showcase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center mb-20 md:mb-28 lg:mb-32"
+            className="text-center mb-12 md:mb-16 lg:mb-20 px-4"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-4">
-              Build your AI Agent.
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3 md:mb-4">
+              {t.showcase.headerTitle}
             </h2>
-            <p className="text-base md:text-xl lg:text-2xl text-[#86868B] font-light tracking-tight">
-              no code, no hassle
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-[#86868B] font-light tracking-tight">
+              {t.showcase.headerSubtitle}
             </p>
           </motion.div>
           
           {/* Section 1: Natural Communication */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-32 md:mb-48 lg:mb-64">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center mb-20 md:mb-32 lg:mb-48">
             {/* Phone Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex justify-center lg:justify-end"
+              className="flex justify-center lg:justify-end order-1 lg:order-1"
             >
-              <div className="relative bg-[#1D1D1F] rounded-[3.5rem] p-3.5 shadow-2xl w-[240px] md:w-[280px] lg:w-[320px]">
-                <div className="bg-gradient-to-b from-gray-900 to-black rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-3xl w-32 h-7 z-10" />
+              <div className="relative bg-[#1D1D1F] rounded-[2.5rem] sm:rounded-[3rem] md:rounded-[3.5rem] p-2.5 sm:p-3 md:p-3.5 shadow-2xl w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px]">
+                <div className="bg-gradient-to-b from-gray-900 to-black rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-2xl sm:rounded-b-3xl w-24 sm:w-28 md:w-32 h-5 sm:h-6 md:h-7 z-10" />
                   <CallScreen />
                 </div>
               </div>
@@ -323,21 +323,21 @@ export const Showcase = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="flex flex-col justify-center"
+              className="flex flex-col justify-center order-2 lg:order-2 text-center lg:text-left px-4 lg:px-0"
             >
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3 md:mb-4">
                 Natural<br />Communication
               </h3>
-              <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
+              <p className="text-base md:text-lg lg:text-xl text-[#86868B] font-light mb-5 md:mb-6 max-w-xl mx-auto lg:mx-0">
                 {t.showcaseSections[0]?.body || "Speaks like a human, understands context, and handles conversations in Thai and English seamlessly."}
               </p>
-              <div className="mt-8">
+              <div className="mt-4 md:mt-8">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#007AFF] text-white rounded-full text-base font-semibold hover:bg-[#0056CC] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
+                  className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-[#007AFF] text-white rounded-full text-sm md:text-base font-semibold hover:bg-[#0056CC] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
                 >
                   Try it now
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
@@ -346,18 +346,18 @@ export const Showcase = () => {
           </div>
 
           {/* Section 2: Always On, 24/7 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-32 md:mb-48 lg:mb-64">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center mb-20 md:mb-32 lg:mb-48">
             {/* Phone Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex justify-center lg:justify-end"
+              className="flex justify-center lg:justify-end order-1 lg:order-1"
             >
-              <div className="relative bg-[#1D1D1F] rounded-[3.5rem] p-3.5 shadow-2xl w-[240px] md:w-[280px] lg:w-[320px]">
-                <div className="bg-black rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-3xl w-32 h-7 z-10" />
+              <div className="relative bg-[#1D1D1F] rounded-[2.5rem] sm:rounded-[3rem] md:rounded-[3.5rem] p-2.5 sm:p-3 md:p-3.5 shadow-2xl w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px]">
+                <div className="bg-black rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-2xl sm:rounded-b-3xl w-24 sm:w-28 md:w-32 h-5 sm:h-6 md:h-7 z-10" />
                   <LockScreen />
                 </div>
               </div>
@@ -369,21 +369,21 @@ export const Showcase = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="flex flex-col justify-center"
+              className="flex flex-col justify-center order-2 lg:order-2 text-center lg:text-left px-4 lg:px-0"
             >
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3 md:mb-4">
                 Always On,<br />24/7
               </h3>
-              <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
+              <p className="text-base md:text-lg lg:text-xl text-[#86868B] font-light mb-5 md:mb-6 max-w-xl mx-auto lg:mx-0">
                 {t.showcaseSections[1]?.body || "Never miss a call again. ANY AI answers instantly, even at 2 AM, capturing every opportunity while you sleep."}
               </p>
-              <div className="mt-8">
+              <div className="mt-4 md:mt-8">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#007AFF] text-white rounded-full text-base font-semibold hover:bg-[#0056CC] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
+                  className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-[#007AFF] text-white rounded-full text-sm md:text-base font-semibold hover:bg-[#0056CC] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
                 >
                   Get started
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>
@@ -392,18 +392,18 @@ export const Showcase = () => {
           </div>
 
           {/* Section 3: Seamless Integration */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
             {/* Phone Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="flex justify-center lg:justify-end"
+              className="flex justify-center lg:justify-end order-1 lg:order-1"
             >
-              <div className="relative bg-[#1D1D1F] rounded-[3.5rem] p-3.5 shadow-2xl w-[240px] md:w-[280px] lg:w-[320px]">
-                <div className="bg-white rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-3xl w-32 h-7 z-10" />
+              <div className="relative bg-[#1D1D1F] rounded-[2.5rem] sm:rounded-[3rem] md:rounded-[3.5rem] p-2.5 sm:p-3 md:p-3.5 shadow-2xl w-full max-w-[280px] sm:max-w-[300px] md:max-w-[320px] lg:max-w-[340px]">
+                <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-2xl sm:rounded-b-3xl w-24 sm:w-28 md:w-32 h-5 sm:h-6 md:h-7 z-10" />
                   <DashboardScreen />
                 </div>
               </div>
@@ -415,21 +415,21 @@ export const Showcase = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              className="flex flex-col justify-center"
+              className="flex flex-col justify-center order-2 lg:order-2 text-center lg:text-left px-4 lg:px-0"
             >
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3 md:mb-4">
                 Seamless<br />Integration
               </h3>
-              <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
+              <p className="text-base md:text-lg lg:text-xl text-[#86868B] font-light mb-5 md:mb-6 max-w-xl mx-auto lg:mx-0">
                 {t.showcaseSections[2]?.body || "Syncs with your CRM, POS, and LINE automatically. Every call becomes actionable data in your existing workflow."}
               </p>
-              <div className="mt-8">
+              <div className="mt-4 md:mt-8">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#FF3B30] text-white rounded-full text-base font-semibold hover:bg-[#D70015] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
+                  className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 bg-[#FF3B30] text-white rounded-full text-sm md:text-base font-semibold hover:bg-[#D70015] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
                 >
                   Start free trial
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </a>

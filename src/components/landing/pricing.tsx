@@ -115,18 +115,18 @@ export const Pricing = () => {
   ];
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-section-bg" id="pricing">
-      <div className="section-container">
+    <section ref={ref} className="py-12 md:py-16 lg:py-24 bg-section-bg" id="pricing">
+      <div className="section-container px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-h2 text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-h2 text-foreground mb-3 md:mb-4">
             {language === 'TH' ? 'แพ็คเกจราคา' : 'Pricing'}
           </h2>
-          <p className="text-description mb-8">
+          <p className="text-sm sm:text-base md:text-lg text-description mb-6 md:mb-8">
             {language === 'TH' ? 'ทดลองใช้ฟรี ไม่ต้องใช้บัตรเครดิต' : 'Try for free, no credit card required'}
           </p>
 
@@ -134,7 +134,7 @@ export const Pricing = () => {
           <div className="inline-flex items-center bg-white rounded-full p-1 shadow-sm border border-border/50">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
                 billingCycle === "monthly"
                   ? "bg-foreground text-white"
                   : "text-foreground/60 hover:text-foreground"
@@ -144,7 +144,7 @@ export const Pricing = () => {
             </button>
             <button
               onClick={() => setBillingCycle("annual")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
                 billingCycle === "annual"
                   ? "bg-foreground text-white"
                   : "text-foreground/60 hover:text-foreground"
@@ -155,7 +155,7 @@ export const Pricing = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -168,46 +168,46 @@ export const Pricing = () => {
               }}
             >
               <div
-                className={`bg-white rounded-[32px] p-8 md:p-10 h-full hover:shadow-[0_8px_16px_rgba(0,0,0,0.12),0_4px_8px_rgba(0,0,0,0.08)] transition-all duration-300 border-2 ${
+                className={`bg-white rounded-3xl md:rounded-[32px] p-6 sm:p-8 md:p-10 h-full hover:shadow-[0_8px_16px_rgba(0,0,0,0.12),0_4px_8px_rgba(0,0,0,0.08)] transition-all duration-300 border-2 ${
                   plan.highlighted
                     ? "border-primary shadow-[0_8px_16px_rgba(0,0,0,0.12),0_4px_8px_rgba(0,0,0,0.08)] relative"
                     : "border-border/30"
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-3 md:px-4 py-1 rounded-full text-xs md:text-sm font-medium">
                     {language === 'TH' ? 'แนะนำ' : 'Recommended'}
                   </div>
                 )}
 
-                <div className="mb-6">
-                  <h3 className="text-2xl font-semibold text-foreground mb-2">
+                <div className="mb-5 md:mb-6">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">
                     {plan.name}
                   </h3>
                   <div className="flex items-baseline gap-1 mb-2">
-                    <span className="text-4xl md:text-5xl font-bold text-foreground">
+                    <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
                       {plan.price}
                     </span>
-                    <span className="text-muted-foreground text-sm">
+                    <span className="text-muted-foreground text-xs sm:text-sm">
                       {plan.period}
                     </span>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-1">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-1">
                     {plan.description}
                   </p>
-                  <p className="text-details mb-4">{plan.tagline}</p>
+                  <p className="text-xs sm:text-sm text-details mb-3 md:mb-4">{plan.tagline}</p>
                   
-                  <div className="inline-block bg-section-bg px-4 py-2 rounded-full">
-                    <span className="text-sm font-medium text-foreground">
+                  <div className="inline-block bg-section-bg px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                    <span className="text-xs sm:text-sm font-medium text-foreground">
                       {plan.usage}
                     </span>
                   </div>
                 </div>
 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2.5 md:space-y-3 mb-6 md:mb-8">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-details">
-                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2.5 md:gap-3 text-xs sm:text-sm text-details">
+                      <Check className="w-4 h-4 md:w-5 md:h-5 text-primary shrink-0 mt-0.5" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -215,7 +215,7 @@ export const Pricing = () => {
 
                 <Button
                   onClick={() => router.push("/contact")}
-                  className={`w-full rounded-full py-6 text-base font-medium transition-all ${
+                  className={`w-full rounded-full py-4 md:py-6 text-sm md:text-base font-medium transition-all ${
                     plan.highlighted
                       ? "bg-primary text-white hover:bg-primary/90"
                       : "bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white"

@@ -18,15 +18,15 @@ export const FAQ = () => {
 
 
   return (
-    <section ref={ref} className="py-12 md:py-20 bg-background" id="faq">
-      <div className="section-container">
+    <section ref={ref} className="py-12 md:py-16 lg:py-20 bg-background" id="faq">
+      <div className="section-container px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-h2 text-foreground text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-h2 text-foreground text-left">
             {t.faqSection.title.split('\n').map((line, index) => (
               <span key={index}>
                 {line}
@@ -42,7 +42,7 @@ export const FAQ = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="w-full"
         >
-          <div className="bg-[#F5F5F7] rounded-[32px] p-8 md:p-10">
+          <div className="bg-[#F5F5F7] rounded-2xl sm:rounded-3xl md:rounded-[32px] p-6 sm:p-8 md:p-10">
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem
@@ -50,10 +50,10 @@ export const FAQ = () => {
                   value={`item-${index}`}
                   className="border-b border-gray-300 last:border-0 px-0"
                 >
-                  <AccordionTrigger className="text-left text-base md:text-[21px] font-normal text-foreground hover:no-underline py-6">
+                  <AccordionTrigger className="text-left text-sm sm:text-base md:text-lg lg:text-[21px] font-normal text-foreground hover:no-underline py-4 sm:py-5 md:py-6">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-details pb-6">
+                  <AccordionContent className="text-xs sm:text-sm md:text-base text-details pb-4 sm:pb-5 md:pb-6">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
