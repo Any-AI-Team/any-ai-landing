@@ -125,7 +125,7 @@ export const Integration = () => {
                   transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 >
                   <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-2">
-                    <span className="block text-5xl">Integrate instantly</span>
+                    <span className="block text-5xl">{t.integration.headline}</span>
                   </h2>
                 </motion.div>
                 
@@ -135,7 +135,7 @@ export const Integration = () => {
                   transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
                 >
                   <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-8">
-                    <span className="text-foreground">with 20+ </span>
+                    <span className="text-foreground">{t.integration.with} </span>
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue via-brand-purple to-brand-pink">
                       CRM
                     </span>
@@ -191,8 +191,7 @@ export const Integration = () => {
             transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
             className="text-base md:text-lg text-muted-foreground max-w-2xl px-4"
           >
-            A <span className="font-semibold text-foreground">universal</span> voice interface with{" "}
-            <span className="font-semibold text-foreground">zero setup</span> required.
+            {t.integration.subtitle}
           </motion.p>
         </div>
       </div>

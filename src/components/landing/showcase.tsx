@@ -10,7 +10,56 @@ const CallScreen = () => (
   <div className="h-full bg-gradient-to-b from-gray-900 to-black flex flex-col items-center justify-center p-6">
     {/* Call UI */}
     <div className="flex-1 flex flex-col items-center justify-center">
-      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 mb-4" />
+      {/* Animated calling avatar with glow effect */}
+      <div className="relative mb-10">
+        {/* Outer glow rings */}
+        <motion.div
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 opacity-30"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          style={{ width: '120px', height: '120px', marginLeft: '-12px', marginTop: '-12px' }}
+        />
+        <motion.div
+          className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 opacity-20"
+          animate={{ 
+            scale: [1, 1.4, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ 
+            duration: 1, 
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.3
+          }}
+          style={{ width: '108px', height: '108px', marginLeft: '-6px', marginTop: '-6px' }}
+        />
+        
+        {/* Main avatar circle */}
+        <motion.div
+          className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 relative z-10 shadow-xl"
+          animate={{ 
+            scale: [1, 0.95, 1],
+            boxShadow: [
+              '0 0 20px rgba(59, 130, 246, 0.5)',
+              '0 0 40px rgba(139, 92, 246, 0.8)',
+              '0 0 20px rgba(59, 130, 246, 0.5)'
+            ]
+          }}
+          transition={{ 
+            duration: 1.8, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
+      
       <p className="text-white text-xl font-medium mb-2">Incoming Call</p>
       <p className="text-gray-400 text-sm mb-8">+66 81 234 5678</p>
       
@@ -63,11 +112,11 @@ const LockScreen = () => (
         className="bg-gray-900/90 backdrop-blur-xl rounded-2xl p-4"
       >
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-8 h-8 rounded-full bg-red-500" />
+          <div className="w-2 h-2 rounded-full bg-red-500" />
           <p className="text-white text-sm font-medium">Missed Call</p>
           <p className="text-gray-500 text-xs ml-auto">02:13 AM</p>
         </div>
-        <p className="text-gray-400 text-sm">Customer</p>
+        <p className="text-gray-400 text-sm">John Doe</p>
       </motion.div>
 
       <motion.div
@@ -91,55 +140,140 @@ const LockScreen = () => (
   </div>
 );
 
-const DashboardScreen = () => (
-  <div className="h-full bg-white flex flex-col p-6">
-    {/* Header */}
-    <div className="mb-6">
-      <h3 className="text-gray-900 text-xl font-semibold">Sync Complete</h3>
-      <p className="text-gray-500 text-sm">All systems updated</p>
-    </div>
+const DashboardScreen = () => {
+  // Chart data points for animation
+  const chartData = [
+    { x: 0, y: 30 },
+    { x: 20, y: 45 },
+    { x: 40, y: 35 },
+    { x: 60, y: 52 },
+    { x: 80, y: 60 },
+    { x: 100, y: 68 },
+  ];
 
-    {/* Success Items */}
-    <div className="space-y-4 flex-1">
-      {[
-        { label: "Lead saved to CRM", delay: 0.2 },
-        { label: "Order synced to POS", delay: 0.4 },
-        { label: "Summary sent to LINE Group", delay: 0.6 },
-      ].map((item, i) => (
-        <motion.div
-          key={i}
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: item.delay, duration: 0.5 }}
-          className="flex items-center gap-3 bg-gray-50 rounded-xl p-4"
-        >
+  return (
+    <div className="h-full bg-gray-50 flex flex-col justify-center items-center p-4">
+      {/* Main Content - Centered */}
+      <div className="w-full max-w-sm">
+        {/* Main Stats Grid */}
+        <div className="grid grid-cols-2 gap-4 mb-6">
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: item.delay + 0.3, type: "spring" }}
-            className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-xl p-4 shadow-sm text-center"
           >
-            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-            </svg>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.4, type: "spring" }}
+              className="text-3xl font-bold text-blue-600 mb-1"
+            >
+              47
+            </motion.div>
+            <div className="text-sm text-gray-600">Calls Handled</div>
           </motion.div>
-          <p className="text-gray-700 text-sm font-medium">{item.label}</p>
-        </motion.div>
-      ))}
-    </div>
 
-    {/* Success Badge */}
-    <motion.div
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1, duration: 0.5 }}
-      className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center"
-    >
-      <p className="text-blue-700 font-semibold">Setup Complete</p>
-      <p className="text-blue-600 text-sm">Ready to go</p>
-    </motion.div>
-  </div>
-);
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white rounded-xl p-4 shadow-sm text-center"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.5, type: "spring" }}
+              className="text-3xl font-bold text-green-600 mb-1"
+            >
+              32
+            </motion.div>
+            <div className="text-sm text-gray-600">Leads Created</div>
+          </motion.div>
+        </div>
+
+        {/* Line Chart - Bigger */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="bg-white rounded-xl p-5 mb-6 shadow-sm"
+        >
+          <div className="text-base font-semibold text-gray-700 mb-4 text-center">Performance Trend</div>
+          <div className="relative h-32 w-full">
+            <svg className="w-full h-full" viewBox="0 0 120 120">
+              {/* Grid lines */}
+              <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f3f4f6" strokeWidth="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              
+              {/* Animated line */}
+              <motion.polyline
+                points={chartData.map(point => `${point.x + 10},${100 - point.y}`).join(' ')}
+                fill="none"
+                stroke="#3B82F6"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, delay: 0.8, ease: "easeInOut" }}
+              />
+              
+              {/* Gradient fill under line */}
+              <motion.polygon
+                points={`10,100 ${chartData.map(point => `${point.x + 10},${100 - point.y}`).join(' ')} 110,100`}
+                fill="url(#gradient)"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1.5 }}
+              />
+              
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style={{stopColor:'#3B82F6', stopOpacity:0.3}} />
+                  <stop offset="100%" style={{stopColor:'#3B82F6', stopOpacity:0}} />
+                </linearGradient>
+              </defs>
+
+              {/* Animated data points */}
+              {chartData.map((point, index) => (
+                <motion.circle
+                  key={index}
+                  cx={point.x + 10}
+                  cy={100 - point.y}
+                  r="3"
+                  fill="#3B82F6"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.8 + (index * 0.1), type: "spring" }}
+                />
+              ))}
+            </svg>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Live Status */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.6, duration: 0.4 }}
+        className="flex items-center justify-center gap-2 mt-3 bg-green-50 rounded-lg py-2"
+      >
+        <motion.div
+          animate={{ scale: [1, 1.3, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-2 h-2 rounded-full bg-green-500"
+        />
+        <span className="text-green-700 text-xs font-medium">Live Updates</span>
+      </motion.div>
+    </div>
+  );
+};
 
 export const Showcase = () => {
   const { t } = useLanguage();

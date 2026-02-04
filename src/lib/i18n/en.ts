@@ -37,6 +37,11 @@ export const EN = {
         statistic: "62% of Calls Unanswered",
         statisticDetail: "Every silent phone is a missed opportunity",
     },
+    integration: {
+        headline: "Integrate instantly",
+        with: "with 20+",
+        subtitle: "A universal voice interface with zero setup required",
+    },
     valueProp: {
         title: "Build your AI Agent.\nno code, no hassle",
         cta: "Early adopter",
