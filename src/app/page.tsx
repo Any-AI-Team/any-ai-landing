@@ -22,10 +22,10 @@ export default function Index() {
                 {/* <ValueProposition /> */}
                 <Showcase />
                 <Integration />
-                {/* <UseCases /> */}
+                <UseCases />
                 {/* <Features /> */}
                 <DataPrivacy />
-                <Pricing />
+                {/* <Pricing /> */}
                 <FAQ />
                 <CTA />
                 <Footer />

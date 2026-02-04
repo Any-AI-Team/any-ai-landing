@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoC1 from "@/assets/LOGO_C1.png";
 
 // Phone Screen Components
 const CallScreen = () => (
@@ -12,24 +14,7 @@ const CallScreen = () => (
       <p className="text-white text-xl font-medium mb-2">Incoming Call</p>
       <p className="text-gray-400 text-sm mb-8">+66 81 234 5678</p>
       
-      {/* Waveform */}
-      <div className="flex items-center gap-1 mb-8">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="w-1 bg-green-500 rounded-full"
-            animate={{
-              height: [20, 40, 20, 50, 20],
-            }}
-            transition={{
-              duration: 1.2,
-              repeat: Infinity,
-              delay: i * 0.1,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+
 
       {/* Language Flags */}
       <div className="flex gap-3 mb-4">
@@ -56,7 +41,7 @@ const CallScreen = () => (
         </motion.div>
       </div>
 
-      <p className="text-green-500 text-sm">Translating... (English ⇄ Thai)</p>
+
     </div>
   </div>
 );
@@ -89,12 +74,14 @@ const LockScreen = () => (
         initial={{ x: -300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.5 }}
-        className="bg-green-900/30 backdrop-blur-xl rounded-2xl p-4 border border-green-500/30"
+        className="bg-gray-900/90 backdrop-blur-xl rounded-2xl p-4"
       >
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-xs font-bold">
-            AI
-          </div>
+          <Image
+            src={logoC1}
+            alt="ANY AI"
+            className="w-8 h-8 rounded-full"
+          />
           <p className="text-white text-sm font-medium">ANY AI</p>
           <p className="text-gray-500 text-xs ml-auto">02:14 AM</p>
         </div>
@@ -130,7 +117,7 @@ const DashboardScreen = () => (
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: item.delay + 0.3, type: "spring" }}
-            className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center"
+            className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center"
           >
             <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -146,10 +133,10 @@ const DashboardScreen = () => (
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, duration: 0.5 }}
-      className="bg-green-50 border border-green-200 rounded-xl p-4 text-center"
+      className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center"
     >
-      <p className="text-green-700 font-semibold">Setup Complete</p>
-      <p className="text-green-600 text-sm">Ready in under 5 minutes</p>
+      <p className="text-blue-700 font-semibold">Setup Complete</p>
+      <p className="text-blue-600 text-sm">Ready to go</p>
     </motion.div>
   </div>
 );
@@ -210,21 +197,17 @@ export const Showcase = () => {
               <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
                 {t.showcaseSections[0]?.body || "Speaks like a human, understands context, and handles conversations in Thai and English seamlessly."}
               </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full w-fit border border-green-200 mb-5">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="font-medium text-xs">{t.showcaseSections[0]?.metric || "Natural conversations"}</span>
+              <div className="mt-8">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#007AFF] text-white rounded-full text-base font-semibold hover:bg-[#0056CC] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
+                >
+                  Try it now
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white rounded-full text-sm font-medium hover:bg-[#2D2D2F] transition-colors w-fit"
-              >
-                Try it now
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
             </motion.div>
           </div>
 
@@ -260,21 +243,17 @@ export const Showcase = () => {
               <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
                 {t.showcaseSections[1]?.body || "Never miss a call again. ANY AI answers instantly, even at 2 AM, capturing every opportunity while you sleep."}
               </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full w-fit border border-green-200 mb-5">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="font-medium text-xs">{t.showcaseSections[1]?.metric || "24/7 availability"}</span>
+              <div className="mt-8">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#007AFF] text-white rounded-full text-base font-semibold hover:bg-[#0056CC] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
+                >
+                  Get started
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white rounded-full text-sm font-medium hover:bg-[#2D2D2F] transition-colors w-fit"
-              >
-                Get started
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
             </motion.div>
           </div>
 
@@ -310,21 +289,17 @@ export const Showcase = () => {
               <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
                 {t.showcaseSections[2]?.body || "Syncs with your CRM, POS, and LINE automatically. Every call becomes actionable data in your existing workflow."}
               </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full w-fit border border-green-200 mb-5">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="font-medium text-xs">{t.showcaseSections[2]?.metric || "Setup in 5 minutes"}</span>
+              <div className="mt-8">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#FF3B30] text-white rounded-full text-base font-semibold hover:bg-[#D70015] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-fit"
+                >
+                  Start free trial
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white rounded-full text-sm font-medium hover:bg-[#2D2D2F] transition-colors w-fit"
-              >
-                Start free trial
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
             </motion.div>
           </div>
 
