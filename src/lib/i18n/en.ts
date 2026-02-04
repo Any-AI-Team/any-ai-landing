@@ -29,6 +29,10 @@ export const EN = {
     pain: {
         headline: "Every Missed Ring is Money Walking Away.",
         subtext: "62% of calls to small businesses go unanswered. When you don't pick up, your competitor does.",
+        title: "The cost of a\nmissed call",
+        subtitle: "Every unanswered call is a customer choosing your competitor.",
+        statPercent: "62%",
+        statText: "of customers won't call back after a missed call.",
         incomingCall: "Incoming Call",
         newCustomer: "New Customer",
         noAnswer: "No answer...",
@@ -58,6 +62,8 @@ export const EN = {
     showcase: {
         title: "See ANY AI in Action",
         subtitle: "Experience how ANY AI transforms customer interactions across languages, time zones, and systems.",
+        headerTitle: "Build your AI Agent.",
+        headerSubtitle: "no code, no hassle",
     },
     showcaseSections: [
         {
