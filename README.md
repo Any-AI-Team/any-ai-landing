@@ -144,6 +144,32 @@ npm start
 ### Docker
 Standard Next.js Dockerfile compatible for containerized deployment.
 
+## 🚀 Future Roadmap
+
+### Phase 1: Enhanced User Experience
+- [ ] **A/B Testing Framework** - Implement analytics for conversion optimization
+- [ ] **Advanced Animations** - Lottie animations for hero section
+- [ ] **Interactive Demos** - Live phone call simulation widget
+- [ ] **Progressive Web App** - Offline capability and app-like experience
+
+### Phase 2: Technical Improvements
+- [ ] **Performance Optimization** - Bundle size reduction and lazy loading
+- [ ] **SEO Enhancement** - Schema markup and advanced meta tags
+- [ ] **Accessibility** - WCAG 2.1 AA compliance
+- [ ] **Testing Suite** - E2E tests with Playwright
+
+### Phase 3: Localization & Analytics
+- [ ] **Multi-language Support** - Extend beyond Thai/English
+- [ ] **Advanced Analytics** - Heatmaps and user behavior tracking
+- [ ] **CMS Integration** - Headless CMS for content management
+- [ ] **API Documentation** - Interactive API docs for integrations
+
+### Phase 4: Advanced Features
+- [ ] **Real-time Chat** - Customer support integration
+- [ ] **Video Testimonials** - Dynamic customer success stories
+- [ ] **Pricing Calculator** - Interactive ROI calculator
+- [ ] **Integration Marketplace** - Showcase available integrations
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -152,7 +178,7 @@ Standard Next.js Dockerfile compatible for containerized deployment.
 4. Push to branch (`git push origin feature/new-feature`)
 5. Open Pull Request
 
-## License
+## 📄 License
 
 Proprietary - ANYCALL Team
 
