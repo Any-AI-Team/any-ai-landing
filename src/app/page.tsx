@@ -9,14 +9,17 @@ import { FAQ } from "@/components/landing/faq";
 import { CTA } from "@/components/landing/cta";
 import { Footer } from "@/components/landing/footer";
 import { Integration } from "@/components/landing/integration";
+import { Showcase } from "@/components/landing/showcase";
+
 export default function Index() {
     return (
         <main className="min-h-screen bg-background overflow-x-hidden">
             <div className="pt-11 md:pt-14">
                 <Hero />
                 <ValueProposition />
-                <UseCases />
+                <Showcase />
                 <Integration />
+                <UseCases />
                 <Features />
                 <Pricing />
                 <FAQ />
