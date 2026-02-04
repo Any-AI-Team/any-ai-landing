@@ -230,12 +230,19 @@ export const Navbar = () => {
             variant="outline"
             size="sm"
             className="rounded-full border-primary text-primary hover:bg-primary/5 hover:text-[#6E6E73] px-6 transition-colors w-[100px]"
+            onClick={() => {
+              const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
+              window.location.href = `${mainAppUrl}/login`;
+            }}
           >
             {t.nav.login}
           </Button>
 
           <Button
-            onClick={scrollToContact}
+            onClick={() => {
+              const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
+              window.location.href = `${mainAppUrl}/register`;
+            }}
             size="sm"
             className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-6 w-[100px]"
           >
@@ -348,12 +355,19 @@ export const Navbar = () => {
                   variant="outline"
                   size="sm"
                   className="rounded-full w-full border-primary text-primary hover:bg-primary/5 hover:text-[#6E6E73] transition-colors"
+                  onClick={() => {
+                    const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
+                    window.location.href = `${mainAppUrl}/login`;
+                  }}
                 >
                   {t.nav.login}
                 </Button>
 
                 <Button
-                  onClick={scrollToContact}
+                  onClick={() => {
+                    const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
+                    window.location.href = `${mainAppUrl}/register`;
+                  }}
                   size="sm"
                   className="rounded-full bg-primary text-primary-foreground w-full"
                 >
