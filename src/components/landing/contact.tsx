@@ -7,17 +7,22 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
+import { Loader2, AlertCircle } from "lucide-react";
 import bgCTA from "@/assets/BG_main.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { contactFormSchema, type ContactFormData } from "@/lib/validation";
+import { z } from "zod";
 
 export const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isRateLimited, setIsRateLimited] = useState(false);
+  const [rateLimitReset, setRateLimitReset] = useState<string | null>(null);
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     firstName: "",
     lastName: "",
     company: "",
@@ -29,33 +34,106 @@ export const ContactSection = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const { name, value } = e.target;
+    
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
+    
+    // Clear field error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: ""
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrors({});
 
-    // Simulate form submission (replace with actual API call)
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Client-side validation first
+      const validationResult = contactFormSchema.safeParse(formData);
+      
+      if (!validationResult.success) {
+        const fieldErrors: Record<string, string> = {};
+        validationResult.error.issues.forEach((issue) => {
+          const field = issue.path[0] as string;
+          fieldErrors[field] = issue.message;
+        });
+        setErrors(fieldErrors);
+        setIsSubmitting(false);
+        return;
+      }
 
-    toast({
-      title: t.contact.form.successTitle,
-      description: t.contact.form.successDesc,
-    });
+      // Submit to API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      company: "",
-      email: "",
-      phone: "",
-      details: "",
-    });
-    setIsSubmitting(false);
+      const result = await response.json();
+
+      if (response.status === 429) {
+        // Rate limited
+        setIsRateLimited(true);
+        setRateLimitReset(result.resetTime);
+        toast({
+          title: "Too Many Requests",
+          description: "Please wait before submitting again.",
+          variant: "destructive",
+        });
+      } else if (!response.ok) {
+        // Validation or server error
+        if (result.details) {
+          const fieldErrors: Record<string, string> = {};
+          result.details.forEach((detail: { field: string; message: string }) => {
+            fieldErrors[detail.field] = detail.message;
+          });
+          setErrors(fieldErrors);
+        } else {
+          toast({
+            title: "Error",
+            description: result.error || "Something went wrong. Please try again.",
+            variant: "destructive",
+          });
+        }
+      } else {
+        // Success
+        toast({
+          title: t.contact.form.successTitle,
+          description: t.contact.form.successDesc,
+        });
+
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          company: "",
+          email: "",
+          phone: "",
+          details: "",
+        });
+        setIsRateLimited(false);
+        setRateLimitReset(null);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Network error. Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -114,9 +192,17 @@ export const ContactSection = () => {
                     value={formData.firstName}
                     onChange={handleChange}
                     required
-                    className="mt-2 bg-background/50 border-2 border-border/50 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className={`mt-2 bg-background/50 border-2 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed ${
+                      errors.firstName ? 'border-red-500 focus:border-red-500' : 'border-border/50'
+                    }`}
                     placeholder={t.contact.form.firstNamePlaceholder}
                   />
+                  {errors.firstName && (
+                    <div className="flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                      <span className="text-sm text-red-500">{errors.firstName}</span>
+                    </div>
+                  )}
                 </motion.div>
 
                 <motion.div
@@ -133,9 +219,17 @@ export const ContactSection = () => {
                     value={formData.lastName}
                     onChange={handleChange}
                     required
-                    className="mt-2 bg-background/50 border-2 border-border/50 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className={`mt-2 bg-background/50 border-2 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed ${
+                      errors.lastName ? 'border-red-500 focus:border-red-500' : 'border-border/50'
+                    }`}
                     placeholder={t.contact.form.lastNamePlaceholder}
                   />
+                  {errors.lastName && (
+                    <div className="flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                      <span className="text-sm text-red-500">{errors.lastName}</span>
+                    </div>
+                  )}
                 </motion.div>
 
                 <motion.div
@@ -151,9 +245,18 @@ export const ContactSection = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="mt-2 bg-background/50 border-2 border-border/50 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    required
+                    className={`mt-2 bg-background/50 border-2 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed ${
+                      errors.company ? 'border-red-500 focus:border-red-500' : 'border-border/50'
+                    }`}
                     placeholder={t.contact.form.companyPlaceholder}
                   />
+                  {errors.company && (
+                    <div className="flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                      <span className="text-sm text-red-500">{errors.company}</span>
+                    </div>
+                  )}
                 </motion.div>
 
                 <motion.div
@@ -171,9 +274,17 @@ export const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-2 bg-background/50 border-2 border-border/50 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className={`mt-2 bg-background/50 border-2 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed ${
+                      errors.email ? 'border-red-500 focus:border-red-500' : 'border-border/50'
+                    }`}
                     placeholder={t.contact.form.emailPlaceholder}
                   />
+                  {errors.email && (
+                    <div className="flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                      <span className="text-sm text-red-500">{errors.email}</span>
+                    </div>
+                  )}
                 </motion.div>
 
                 <motion.div
@@ -191,9 +302,18 @@ export const ContactSection = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="mt-2 bg-background/50 border-2 border-border/50 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    required
+                    className={`mt-2 bg-background/50 border-2 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed ${
+                      errors.phone ? 'border-red-500 focus:border-red-500' : 'border-border/50'
+                    }`}
                     placeholder={t.contact.form.phonePlaceholder}
                   />
+                  {errors.phone && (
+                    <div className="flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                      <span className="text-sm text-red-500">{errors.phone}</span>
+                    </div>
+                  )}
                 </motion.div>
 
                 <motion.div
@@ -211,9 +331,18 @@ export const ContactSection = () => {
                     value={formData.details}
                     onChange={handleChange}
                     rows={4}
-                    className="mt-2 bg-background/50 border-2 border-border/50 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none"
+                    required
+                    className={`mt-2 bg-background/50 border-2 transition-colors hover:border-[#6E6E73] focus:border-[#6E6E73] outline-none ring-0 focus:ring-0 focus:outline-none focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none ${
+                      errors.details ? 'border-red-500 focus:border-red-500' : 'border-border/50'
+                    }`}
                     placeholder={t.contact.form.detailsPlaceholder}
                   />
+                  {errors.details && (
+                    <div className="flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-4 w-4 text-red-500" />
+                      <span className="text-sm text-red-500">{errors.details}</span>
+                    </div>
+                  )}
                 </motion.div>
               </div>
 
@@ -223,10 +352,23 @@ export const ContactSection = () => {
                 transition={{ delay: 0.6 }}
                 className="mt-8"
               >
+                {isRateLimited && (
+                  <div className="mb-4 p-3 bg-orange-100 border border-orange-300 rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <AlertCircle className="h-4 w-4 text-orange-600" />
+                      <span className="text-sm text-orange-800">
+                        Rate limit exceeded. Please wait before submitting again.
+                        {rateLimitReset && (
+                          <> Reset at: {new Date(rateLimitReset).toLocaleTimeString()}</>
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                )}
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-pill bg-primary text-primary-foreground hover:bg-primary/90 py-6 text-base"
+                  disabled={isSubmitting || isRateLimited}
+                  className="w-full btn-pill bg-primary text-primary-foreground hover:bg-primary/90 py-6 text-base disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
