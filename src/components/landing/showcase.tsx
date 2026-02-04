@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Phone Screen Components
@@ -156,116 +155,179 @@ const DashboardScreen = () => (
 );
 
 export const Showcase = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Determine which screen to show based on scroll
-  const screenIndex = useTransform(scrollYProgress, [0, 0.33, 0.66, 1], [0, 1, 2, 2]);
-
   return (
-    <section ref={containerRef} className="relative bg-white">
-      <div className="section-container py-16 md:py-24">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-            {t.showcase.title.split('\n').map((line, index) => (
-              <span key={index}>
-                {line}
-                {index < t.showcase.title.split('\n').length - 1 && <br />}
-              </span>
-            ))}
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            {t.showcase.subtitle}
-          </p>
-        </motion.div>
-
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left: Sticky Phone */}
-          <div className="lg:sticky lg:top-32 h-fit">
+    <section className="relative bg-white py-32 md:py-48 lg:py-56">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-20 md:mb-28 lg:mb-32"
+          >
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-4">
+              Build your AI Agent.
+            </h2>
+            <p className="text-base md:text-xl lg:text-2xl text-[#86868B] font-light tracking-tight">
+              no code, no hassle
+            </p>
+          </motion.div>
+          
+          {/* Section 1: Natural Communication */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-32 md:mb-48 lg:mb-64">
+            {/* Phone Left */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative mx-auto max-w-[300px]"
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex justify-center lg:justify-end"
             >
-              {/* Phone Frame */}
-              <div className="relative bg-black rounded-[3rem] p-3 shadow-2xl">
-                {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10" />
-                
-                {/* Screen */}
-                <div className="relative bg-white rounded-[2.5rem] overflow-hidden aspect-[9/19.5]">
-                  <motion.div
-                    style={{
-                      opacity: useTransform(scrollYProgress, [0, 0.2, 0.3, 0.33], [1, 1, 0, 0]),
-                    }}
-                    className="absolute inset-0"
-                  >
-                    <CallScreen />
-                  </motion.div>
-                  
-                  <motion.div
-                    style={{
-                      opacity: useTransform(scrollYProgress, [0.3, 0.33, 0.63, 0.66], [0, 1, 1, 0]),
-                    }}
-                    className="absolute inset-0"
-                  >
-                    <LockScreen />
-                  </motion.div>
-                  
-                  <motion.div
-                    style={{
-                      opacity: useTransform(scrollYProgress, [0.63, 0.66, 1], [0, 1, 1]),
-                    }}
-                    className="absolute inset-0"
-                  >
-                    <DashboardScreen />
-                  </motion.div>
+              <div className="relative bg-[#1D1D1F] rounded-[3.5rem] p-3.5 shadow-2xl w-[240px] md:w-[280px] lg:w-[320px]">
+                <div className="bg-gradient-to-b from-gray-900 to-black rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-3xl w-32 h-7 z-10" />
+                  <CallScreen />
                 </div>
               </div>
             </motion.div>
+
+            {/* Content Right */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="flex flex-col justify-center"
+            >
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3">
+                Natural<br />Communication
+              </h3>
+              <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
+                {t.showcaseSections[0]?.body || "Speaks like a human, understands context, and handles conversations in Thai and English seamlessly."}
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full w-fit border border-green-200 mb-5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="font-medium text-xs">{t.showcaseSections[0]?.metric || "Natural conversations"}</span>
+              </div>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white rounded-full text-sm font-medium hover:bg-[#2D2D2F] transition-colors w-fit"
+              >
+                Try it now
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
           </div>
 
-          {/* Right: Scrollable Content */}
-          <div className="space-y-32 lg:space-y-96">
-            {t.showcaseSections.map((section: any, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-20%" }}
-                transition={{ duration: 0.6 }}
-                className="min-h-[400px] flex flex-col justify-center"
-              >
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                  {section.title}
-                </h3>
-                <p className="text-lg text-gray-600 mb-6">
-                  {section.body}
-                </p>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full w-fit">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="font-medium">{section.metric}</span>
+          {/* Section 2: Always On, 24/7 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-32 md:mb-48 lg:mb-64">
+            {/* Phone Left */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex justify-center lg:justify-end"
+            >
+              <div className="relative bg-[#1D1D1F] rounded-[3.5rem] p-3.5 shadow-2xl w-[240px] md:w-[280px] lg:w-[320px]">
+                <div className="bg-black rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-3xl w-32 h-7 z-10" />
+                  <LockScreen />
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+
+            {/* Content Right */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="flex flex-col justify-center"
+            >
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3">
+                Always On,<br />24/7
+              </h3>
+              <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
+                {t.showcaseSections[1]?.body || "Never miss a call again. ANY AI answers instantly, even at 2 AM, capturing every opportunity while you sleep."}
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full w-fit border border-green-200 mb-5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="font-medium text-xs">{t.showcaseSections[1]?.metric || "24/7 availability"}</span>
+              </div>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white rounded-full text-sm font-medium hover:bg-[#2D2D2F] transition-colors w-fit"
+              >
+                Get started
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
           </div>
+
+          {/* Section 3: Seamless Integration */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Phone Left */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex justify-center lg:justify-end"
+            >
+              <div className="relative bg-[#1D1D1F] rounded-[3.5rem] p-3.5 shadow-2xl w-[240px] md:w-[280px] lg:w-[320px]">
+                <div className="bg-white rounded-[3rem] overflow-hidden aspect-[9/19.5] relative">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#1D1D1F] rounded-b-3xl w-32 h-7 z-10" />
+                  <DashboardScreen />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Content Right */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="flex flex-col justify-center"
+            >
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1D1D1F] tracking-[-0.02em] leading-[1.05] mb-3">
+                Seamless<br />Integration
+              </h3>
+              <p className="text-sm md:text-base lg:text-lg text-[#86868B] font-light mb-5 max-w-xl">
+                {t.showcaseSections[2]?.body || "Syncs with your CRM, POS, and LINE automatically. Every call becomes actionable data in your existing workflow."}
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-full w-fit border border-green-200 mb-5">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="font-medium text-xs">{t.showcaseSections[2]?.metric || "Setup in 5 minutes"}</span>
+              </div>
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1D1D1F] text-white rounded-full text-sm font-medium hover:bg-[#2D2D2F] transition-colors w-fit"
+              >
+                Start free trial
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
