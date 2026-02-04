@@ -1,0 +1,3 @@
+export const flagTH = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3e%3cpath fill='%23ED1C24' d='M0 0h900v600H0z'/%3e%3cpath fill='%23fff' d='M0 100h900v400H0z'/%3e%3cpath fill='%232D2A87' d='M0 200h900v200H0z'/%3e%3c/svg%3e";
+
+export const flagUS = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7410 3900'%3e%3cpath fill='%23b22234' d='M0 0h7410v3900H0z'/%3e%3cpath stroke='%23fff' stroke-width='300' d='M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0'/%3e%3cpath fill='%233c3b6e' d='M0 0h2964v2100H0z'/%3e%3c/svg%3e";

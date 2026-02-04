@@ -1,11 +1,12 @@
 import { TH } from "./i18n/th";
 import { EN } from "./i18n/en";
+import { flagTH, flagUS } from "@/assets/flags";
 
 export type Language = "TH" | "EN";
 
 export const LANGUAGES = [
-    { code: "TH" as Language, label: "ไทย", flag: "https://flagcdn.com/w40/th.png" },
-    { code: "EN" as Language, label: "English", flag: "https://flagcdn.com/w40/us.png" },
+    { code: "TH" as Language, label: "ไทย", flag: flagTH },
+    { code: "EN" as Language, label: "English", flag: flagUS },
 ];
 
 export const UI_TEXT = {
