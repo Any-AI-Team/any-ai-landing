@@ -22,13 +22,13 @@ export const Pain = () => {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="flex justify-center lg:justify-end"
             >
-              <div className="relative w-full max-w-[400px] md:max-w-[500px] lg:max-w-[550px]">
+                <div className="relative w-full max-w-[960px] md:max-w-[960px] lg:max-w-[960px]">
                 <img 
-                  src="/missed-call-illustration.jpg" 
+                  src="/missed-call-illustration.png" 
                   alt="Missed call illustration showing business owner overwhelmed while customer calls" 
                   className="w-full h-auto"
                 />
-              </div>
+                </div>
             </motion.div>
 
             {/* RIGHT: Text Content */}
@@ -61,9 +61,9 @@ export const Pain = () => {
                 <p className="text-base md:text-xl lg:text-2xl text-[#1D1D1F] font-medium mb-3">
                   of customers won't call back after a missed call.
                 </p>
-                <p className="text-sm md:text-base text-[#86868B] font-light max-w-xl">
+                {/* <p className="text-sm md:text-base text-[#86868B] font-light max-w-xl">
                   {t.pain.statisticDetail}
-                </p>
+                </p> */}
               </div>
             </motion.div>
 
