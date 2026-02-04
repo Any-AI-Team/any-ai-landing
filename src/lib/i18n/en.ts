@@ -26,6 +26,17 @@ export const EN = {
         subtitle: "ANYCALL",
         cta: "Join now",
     },
+    pain: {
+        headline: "Every Missed Ring is Money Walking Away.",
+        subtext: "62% of calls to small businesses go unanswered. When you don't pick up, your competitor does.",
+        incomingCall: "Incoming Call",
+        newCustomer: "New Customer",
+        noAnswer: "No answer...",
+        potentialRevenue: "Potential Revenue",
+        moneyLost: "💨 Gone Forever",
+        statistic: "62% of Calls Unanswered",
+        statisticDetail: "Every silent phone is a missed opportunity",
+    },
     valueProp: {
         title: "Build your AI Agent.\nno code, no hassle",
         cta: "Early adopter",
@@ -40,7 +51,7 @@ export const EN = {
         title: "Everything you need to\nknow about ANYCALL",
     },
     showcase: {
-        title: "See ANY AI\nin Action",
+        title: "See ANY AI in Action",
         subtitle: "Experience how ANY AI transforms customer interactions across languages, time zones, and systems.",
     },
     showcaseSections: [
@@ -60,6 +71,11 @@ export const EN = {
             metric: "Setup in < 5 minutes",
         },
     ],
+    dataPrivacy: {
+        title: "All data stays on your device",
+        subtitle: "We believe your data belongs to you. Privacy is built into everything we do.",
+        learnMore: "Learn more"
+    },
     ctaSection: {
         title: "Ready To Transform Your Business Communication?",
         subtitle: "Everything your business needs for effortless, intelligent communication",
@@ -68,7 +84,35 @@ export const EN = {
     footer: {
         rights: "All rights reserved",
         privacy: "Privacy Policy",
-        terms: "Terms of Service"
+        terms: "Terms of Service",
+        product: {
+            title: "Product",
+            anycall: "ANYCALL",
+            anychat: "ANYCHAT",
+            pricing: "Pricing",
+            useCases: "Use Cases"
+        },
+        company: {
+            title: "Company",
+            about: "About Us",
+            team: "Team",
+            blog: "Blog",
+            contact: "Contact"
+        },
+        resources: {
+            title: "Resources",
+            faq: "FAQ",
+            docs: "Documentation",
+            status: "Status",
+            support: "Support Center"
+        },
+        legal: {
+            title: "Legal",
+            privacy: "Privacy Policy",
+            terms: "Terms of Service",
+            cookies: "Cookie Policy",
+            pdpa: "PDPA Compliance"
+        }
     },
     contact: {
         title: "Let's Connect",
