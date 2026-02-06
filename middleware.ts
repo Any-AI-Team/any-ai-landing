@@ -1,7 +1,45 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+// Simple in-memory rate limiting for middleware
+const requestCounts = new Map<string, { count: number; resetTime: number }>()
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const windowMs = 60 * 1000 // 1 minute
+  const maxRequests = 60 // 60 requests per minute per IP
+
+  const record = requestCounts.get(ip)
+
+  if (!record || now > record.resetTime) {
+    requestCounts.set(ip, { count: 1, resetTime: now + windowMs })
+    return false
+  }
+
+  if (record.count >= maxRequests) {
+    return true
+  }
+
+  record.count++
+  requestCounts.set(ip, record)
+  return false
+}
+
 export function middleware(request: NextRequest) {
+  // Get client IP
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ??
+    request.headers.get('x-real-ip') ??
+    request.headers.get('cf-connecting-ip') ??
+    'anonymous'
+
+  // Apply rate limiting
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please slow down.' },
+      { status: 429 }
+    )
+  }
+
   const response = NextResponse.next()
 
   // Security headers

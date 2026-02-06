@@ -231,8 +231,7 @@ export const Navbar = () => {
             size="sm"
             className="rounded-full border-primary text-primary hover:bg-primary/5 hover:text-[#6E6E73] px-6 transition-colors w-[100px]"
             onClick={() => {
-              const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
-              window.location.href = `${mainAppUrl}/login`;
+              window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
             }}
           >
             {t.nav.login}
@@ -240,8 +239,7 @@ export const Navbar = () => {
 
           <Button
             onClick={() => {
-              const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
-              window.location.href = `${mainAppUrl}/register`;
+              window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
             }}
             size="sm"
             className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-6 w-[100px]"
@@ -328,11 +326,12 @@ export const Navbar = () => {
                 className="flex flex-col gap-3 mt-2"
               >
                 {/* Mobile Language Switcher */}
-                <div className="flex flex-col gap-1 border-b border-border/50 pb-4 mb-2">
-                  <div className="flex items-center gap-2 text-foreground/80 py-2">
+                <div className="border-b border-border/50 pb-4 mb-2">
+                  <div className="flex items-center gap-2 text-foreground/80 mb-3 font-medium">
                     <Globe className="w-5 h-5" />
+                    <span className="text-sm">Language</span>
                   </div>
-                  <div className="flex gap-4 pl-7">
+                  <div className="grid grid-cols-2 gap-3">
                     {LANGUAGES.map((lang) => (
                       <button
                         key={lang.code}
@@ -340,12 +339,17 @@ export const Navbar = () => {
                           setLanguage(lang.code);
                           setIsMobileMenuOpen(false);
                         }}
-                        className={`flex items-center gap-2 text-sm ${language === lang.code ? 'text-primary font-bold' : 'text-foreground/60'}`}
+                        className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg border transition-all ${
+                          language === lang.code 
+                            ? 'border-primary bg-primary/5 text-primary font-semibold shadow-sm' 
+                            : 'border-border/30 text-foreground/70 hover:border-primary/50 hover:bg-primary/5'
+                        }`}
                       >
-                        <div className="w-5 h-5 rounded-full overflow-hidden border border-gray-100 flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full overflow-hidden border border-gray-200 flex-shrink-0">
                           <img src={lang.flag} alt={lang.label} className="w-full h-full object-cover" />
                         </div>
-                        {lang.label}
+                        <span className="text-sm">{lang.label}</span>
+                        {language === lang.code && <Check className="w-4 h-4 ml-auto" />}
                       </button>
                     ))}
                   </div>
@@ -356,8 +360,7 @@ export const Navbar = () => {
                   size="sm"
                   className="rounded-full w-full border-primary text-primary hover:bg-primary/5 hover:text-[#6E6E73] transition-colors"
                   onClick={() => {
-                    const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
-                    window.location.href = `${mainAppUrl}/login`;
+                    window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
                   }}
                 >
                   {t.nav.login}
@@ -365,11 +368,10 @@ export const Navbar = () => {
 
                 <Button
                   onClick={() => {
-                    const mainAppUrl = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'http://localhost:3001';
-                    window.location.href = `${mainAppUrl}/register`;
+                    window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
                   }}
                   size="sm"
-                  className="rounded-full bg-primary text-primary-foreground w-full"
+                  className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 w-full"
                 >
                   {t.nav.signup}
                 </Button>

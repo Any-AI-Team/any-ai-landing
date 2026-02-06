@@ -84,18 +84,18 @@ export const Footer = () => {
   ];
 
   const contactInfo = language === 'TH' ? [
-    { icon: Mail, label: "contact@any.co.th" },
-    { icon: Phone, label: "+66 2 123 4567" },
+    { icon: Mail, label: "any.ai.team@gmail.com" },
+    { icon: Phone, label: "+66 63 248 4909" },
     { icon: MapPin, label: "กรุงเทพมหานคร, ประเทศไทย" },
   ] : [
-    { icon: Mail, label: "contact@any.co.th" },
-    { icon: Phone, label: "+66 2 123 4567" },
+    { icon: Mail, label: "any.ai.team@gmail.com" },
+    { icon: Phone, label: "+66 63 248 4909" },
     { icon: MapPin, label: "Bangkok, Thailand" },
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: "https://linkedin.com/company/any", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com/any", label: "Twitter" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/any-ai-thailand/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://www.instagram.com/any.ai.thailand/", label: "Instagram" },
     { icon: Facebook, href: "https://facebook.com/any", label: "Facebook" },
     { icon: Youtube, href: "https://youtube.com/@any", label: "YouTube" },
   ];

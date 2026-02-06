@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Ratelimit } from '@upstash/ratelimit'
-import { contactFormSchema, sanitizeInput, RATE_LIMIT_CONFIG } from '@/lib/validation'
+import { contactFormSchema, sanitizeInput, validateNoSQLInjection, RATE_LIMIT_CONFIG } from '@/lib/validation'
 import { Resend } from 'resend'
 
 // Simple in-memory rate limiting for development
@@ -118,6 +118,18 @@ export async function POST(request: NextRequest) {
     // Parse and validate request body
     const body = await request.json()
     
+    // Check for SQL injection attempts in all fields
+    const fieldsToCheck = ['firstName', 'lastName', 'email', 'phone', 'company', 'details']
+    for (const field of fieldsToCheck) {
+      if (body[field] && !validateNoSQLInjection(body[field])) {
+        console.warn(`SQL injection attempt detected in field: ${field}, IP: ${identifier}`)
+        return NextResponse.json(
+          { error: 'Invalid input detected. Please remove special characters.' },
+          { status: 400 }
+        )
+      }
+    }
+    
     // Validate against schema
     const validationResult = contactFormSchema.safeParse(body)
     
@@ -160,7 +172,7 @@ export async function POST(request: NextRequest) {
         
         // Email to admin/company
         const adminEmailData = await resend.emails.send({
-          from: process.env.NODE_ENV === 'production' ? 'contact@any.co.th' : 'onboarding@resend.dev',
+          from: process.env.NODE_ENV === 'production' ? 'any.ai.team@gmail.com' : 'onboarding@resend.dev',
           to: [process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'methasitpun@gmail.com'],
           subject: `New Contact Form Submission - ${sanitizedData.firstName} ${sanitizedData.lastName}`,
           html: `
@@ -226,7 +238,7 @@ export async function POST(request: NextRequest) {
                 <p style="color: #6c757d; font-size: 14px; margin-top: 30px;">
                   Best regards,<br>
                   The ANYCALL Team<br>
-                  <a href="mailto:contact@any.co.th" style="color: #007bff;">contact@any.co.th</a>
+                  <a href="mailto:any.ai.team@gmail.com" style="color: #007bff;">any.ai.team@gmail.com</a>
                 </p>
               </div>
             </div>
