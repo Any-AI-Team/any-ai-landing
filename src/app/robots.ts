@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://anycall.co/sitemap.xml',
+        sitemap: `${process.env.NEXT_PUBLIC_APP_URL}/sitemap.xml`,
     };
 }
