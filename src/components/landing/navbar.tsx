@@ -231,7 +231,7 @@ export const Navbar = () => {
             size="sm"
             className="rounded-full border-primary text-primary hover:bg-primary/5 hover:text-[#6E6E73] px-6 transition-colors w-[100px]"
             onClick={() => {
-              window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
+              window.location.href = `${process.env.NEXT_PUBLIC_MAIN_APP_URL}/login?redirect=%2F`;
             }}
           >
             {t.nav.login}
@@ -239,7 +239,7 @@ export const Navbar = () => {
 
           <Button
             onClick={() => {
-              window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
+              window.location.href = `${process.env.NEXT_PUBLIC_MAIN_APP_URL}/login?redirect=%2F`;
             }}
             size="sm"
             className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-6 w-[100px]"
@@ -360,7 +360,7 @@ export const Navbar = () => {
                   size="sm"
                   className="rounded-full w-full border-primary text-primary hover:bg-primary/5 hover:text-[#6E6E73] transition-colors"
                   onClick={() => {
-                    window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
+                    window.location.href = `${process.env.NEXT_PUBLIC_MAIN_APP_URL}/login?redirect=%2F`;
                   }}
                 >
                   {t.nav.login}
@@ -368,7 +368,7 @@ export const Navbar = () => {
 
                 <Button
                   onClick={() => {
-                    window.location.href = 'https://app.anyaith.com/login?redirect=%2F';
+                    window.location.href = `${process.env.NEXT_PUBLIC_MAIN_APP_URL}/login?redirect=%2F`;
                   }}
                   size="sm"
                   className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 w-full"
