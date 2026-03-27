@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AISummary } from "@/components/seo/AISummary";
 import HomeClient from "./HomeClient";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
@@ -37,6 +38,7 @@ export default function Index() {
     return (
         <>
             <JsonLd />
+            <AISummary />
             <HomeClient />
         </>
     );
