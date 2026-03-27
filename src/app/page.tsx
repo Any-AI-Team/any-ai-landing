@@ -3,6 +3,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { AISummary } from "@/components/seo/AISummary";
 import HomeClient from "./HomeClient";
 
+// Force static generation — Googlebot gets pre-rendered HTML instantly
+export const dynamic = "force-static";
+
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
 
 export const metadata: Metadata = {

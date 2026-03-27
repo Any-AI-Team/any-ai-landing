@@ -307,6 +307,72 @@ const faqSchema = {
     ],
 };
 
+const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": `${APP_URL}/#howto`,
+    name: "วิธีสร้าง AI Calling Agent ใน 5 นาที ด้วย ANYCALL",
+    description: "คู่มือทีละขั้นตอนในการสร้าง AI Agent รับสาย-โทรออกอัตโนมัติสำหรับธุรกิจของคุณ ไม่ต้องเขียนโค้ด",
+    totalTime: "PT5M",
+    estimatedCost: {
+        "@type": "MonetaryAmount",
+        currency: "THB",
+        value: "0",
+    },
+    supply: [
+        {
+            "@type": "HowToSupply",
+            name: "บัญชี ANYCALL (สมัครฟรี)",
+        },
+    ],
+    tool: [
+        {
+            "@type": "HowToTool",
+            name: "เว็บเบราว์เซอร์",
+        },
+    ],
+    step: [
+        {
+            "@type": "HowToStep",
+            position: 1,
+            name: "สมัครบัญชี ANYCALL",
+            text: "เข้าไปที่ app.anyaith.com แล้วสมัครบัญชีฟรี ใช้ Google Login หรืออีเมลได้ ไม่ต้องใส่บัตรเครดิต",
+            url: "https://app.anyaith.com",
+        },
+        {
+            "@type": "HowToStep",
+            position: 2,
+            name: "ตั้งค่า AI Agent",
+            text: "กำหนดชื่อ Agent, เลือกเสียง (ไทย/อังกฤษ), ใส่ข้อมูลธุรกิจและ prompt ที่ต้องการให้ AI พูด เลือกบริการที่รับจอง เช่น ทำฟัน ตรวจฟัน",
+            url: "https://app.anyaith.com",
+        },
+        {
+            "@type": "HowToStep",
+            position: 3,
+            name: "อัปโหลดเอกสารธุรกิจ (ไม่จำเป็น)",
+            text: "อัปโหลดไฟล์ PDF เช่น เมนูบริการ ราคา FAQ เพื่อให้ AI ใช้ตอบคำถามด้วย RAG (Retrieval-Augmented Generation) ได้แม่นยำยิ่งขึ้น",
+        },
+        {
+            "@type": "HowToStep",
+            position: 4,
+            name: "เชื่อมต่อเบอร์โทรศัพท์",
+            text: "เลือกเบอร์โทรศัพท์จากระบบ หรือเชื่อมต่อ SIP Trunk ของคุณ เมื่อเชื่อมแล้ว AI จะเริ่มรับสายทันที",
+        },
+        {
+            "@type": "HowToStep",
+            position: 5,
+            name: "ตั้งค่าตารางนัดหมาย",
+            text: "กำหนดวันเวลาทำงาน ระยะเวลาต่อ slot และบริการที่เปิดจอง AI จะจองนัดหมายให้ลูกค้าอัตโนมัติตามตารางที่ตั้งไว้",
+        },
+        {
+            "@type": "HowToStep",
+            position: 6,
+            name: "ทดสอบและเปิดใช้งาน",
+            text: "โทรทดสอบเข้ามาที่เบอร์ที่เชื่อมต่อ ตรวจสอบว่า AI ตอบถูกต้อง จองนัดได้ และโอนสายเมื่อจำเป็น เมื่อพร้อมก็เปิดใช้งานจริง",
+        },
+    ],
+};
+
 const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -330,6 +396,7 @@ export function JsonLd() {
         productSchema,
         serviceSchema,
         faqSchema,
+        howToSchema,
         breadcrumbSchema,
     ];
 
