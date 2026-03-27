@@ -2,13 +2,15 @@ import { Providers } from "./providers";
 import "./globals.css";
 import { Navbar } from "@/components/landing/navbar";
 import { Kanit } from "next/font/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 const kanit = Kanit({
     subsets: ["latin", "thai"],
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    weight: ["400", "500", "600", "700"],
     variable: "--font-kanit",
     display: "swap",
+    preload: true,
+    fallback: ["system-ui", "arial"],
 });
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
@@ -22,21 +24,37 @@ export const metadata: Metadata = {
     description:
         "ANYCALL แพลตฟอร์ม AI Calling Agent รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ไม่พลาดทุกโอกาส สร้าง AI Agent ของธุรกิจคุณได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด รองรับภาษาไทย-อังกฤษ",
     keywords: [
+        // Primary keywords
         "AI Calling Agent",
         "AI รับสาย",
         "ระบบตอบรับอัตโนมัติ",
         "AI call center",
         "ANYCALL",
         "anyaith",
+        // Secondary keywords
         "AI โทรศัพท์",
         "สร้าง AI Agent",
         "รับสายอัตโนมัติ",
         "AI ธุรกิจ SME",
         "ระบบ AI สำหรับธุรกิจ",
         "AI 24 ชั่วโมง",
+        // Long-tail Thai keywords
+        "ระบบ AI รับสายโทรศัพท์",
+        "AI จองนัดหมายอัตโนมัติ",
+        "ระบบโทรอัตโนมัติไทย",
+        "AI receptionist ภาษาไทย",
+        "ระบบตอบรับโทรศัพท์อัตโนมัติ",
+        "AI คลินิกทันตกรรม",
+        "AI agent สำหรับธุรกิจ",
+        "voice bot ภาษาไทย",
+        // English/international
         "call automation Thailand",
         "voice AI Thailand",
         "AI receptionist",
+        "Thai AI calling",
+        "automated phone system Thailand",
+        "AI phone agent",
+        "no-code AI calling",
     ],
     authors: [{ name: "ANYCALL", url: APP_URL }],
     creator: "ANYCALL",
@@ -92,7 +110,27 @@ export const metadata: Metadata = {
     },
     verification: {
         google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
+        yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "",
+        other: {
+            "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION || "",
+        },
     },
+    appLinks: {
+        web: {
+            url: APP_URL,
+            should_fallback: true,
+        },
+    },
+};
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+        { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    ],
 };
 
 export default function RootLayout({
@@ -101,8 +139,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="th">
-            <body className={kanit.className}>
+        <html lang="th" dir="ltr">
+            <head>
+                {/* DNS Prefetch & Preconnect for performance */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="//www.google-analytics.com" />
+                <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+                {/* Canonical handled by Next.js metadata, but add preload for LCP image */}
+                <link rel="preload" as="image" href="/og-image.png" type="image/png" />
+            </head>
+            <body className={`${kanit.className} ${kanit.variable}`}>
                 <Providers>
                     <Navbar />
                     {children}
