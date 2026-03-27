@@ -82,6 +82,7 @@ export const metadata: Metadata = {
         icon: "/favicon.png",
         apple: "/favicon.png",
     },
+    manifest: "/manifest.json",
     openGraph: {
         title: "ANYCALL - AI Calling Agent | รับสายอัตโนมัติ 24/7",
         description:

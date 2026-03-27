@@ -7,7 +7,7 @@ export const Pain = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 bg-white overflow-hidden">
+    <section className="relative py-16 md:py-24 lg:py-32 xl:py-40 bg-white overflow-hidden" id="problem">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           
@@ -23,10 +23,13 @@ export const Pain = () => {
               className="flex justify-center lg:justify-end order-2 lg:order-1"
             >
                 <div className="relative w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[960px]">
-                <img 
-                  src="/missed-call-illustration.png" 
-                  alt="Missed call illustration showing business owner overwhelmed while customer calls" 
+                <img
+                  src="/missed-call-illustration.png"
+                  alt="ANYCALL แก้ปัญหาพลาดสาย — ภาพเจ้าของธุรกิจพลาดสายลูกค้าเพราะไม่มีคนรับ AI รับสายแทนได้ 24/7"
                   className="w-full h-auto"
+                  loading="lazy"
+                  width={960}
+                  height={720}
                 />
                 </div>
             </motion.div>

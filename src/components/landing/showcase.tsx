@@ -279,7 +279,7 @@ export const Showcase = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative bg-white py-16 md:py-24 lg:py-32 xl:py-40">
+    <section className="relative bg-white py-16 md:py-24 lg:py-32 xl:py-40" id="features">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           
