@@ -8,7 +8,7 @@ export const DataPrivacy = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="section-container section-spacing">
+    <section className="section-container section-spacing" id="security">
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900 via-black to-gray-900 px-8 py-16 md:px-16 md:py-24">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
