@@ -151,6 +151,16 @@ export default function RootLayout({
                 <link rel="preload" as="image" href="/og-image.png" type="image/png" />
             </head>
             <body className={`${kanit.className} ${kanit.variable}`}>
+                <noscript>
+                    <div style={{ padding: "2rem", textAlign: "center", fontFamily: "system-ui" }}>
+                        <h1>ANYCALL — AI Calling Agent สำหรับธุรกิจไทย</h1>
+                        <p>แพลตฟอร์ม AI รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ไม่พลาดทุกโอกาส สร้าง AI Agent ได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด</p>
+                        <p>กรุณาเปิดใช้งาน JavaScript เพื่อประสบการณ์การใช้งานที่ดีที่สุด</p>
+                        <nav>
+                            <a href="/">หน้าหลัก</a> | <a href="/contact">ติดต่อเรา</a> | <a href="/use-cases">Use Cases</a> | <a href="/blog">Blog</a>
+                        </nav>
+                    </div>
+                </noscript>
                 <Providers>
                     <Navbar />
                     {children}

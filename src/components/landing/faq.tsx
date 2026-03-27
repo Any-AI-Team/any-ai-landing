@@ -18,7 +18,7 @@ export const FAQ = () => {
 
 
   return (
-    <section ref={ref} className="py-12 md:py-16 lg:py-20 bg-background" id="faq">
+    <section ref={ref} className="py-12 md:py-16 lg:py-20 bg-background" id="faq" aria-label="คำถามที่พบบ่อยเกี่ยวกับ ANYCALL AI Calling Agent">
       <div className="section-container px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
