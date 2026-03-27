@@ -18,6 +18,7 @@ export const Hero = () => {
 
   return (
     <section
+      aria-label="AI Calling Agent สำหรับธุรกิจไทย"
       className="relative min-h-[500px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[800px] xl:min-h-[950px] flex items-start justify-center overflow-hidden pt-8 sm:pt-10 md:pt-12 px-4 sm:px-6"
       style={{
         backgroundImage: `url(${bgMain.src})`,
@@ -75,9 +76,10 @@ export const Hero = () => {
         >
           <Image
             src={heroPhones}
-            alt="App Interface Preview"
+            alt="ANYCALL AI Calling Agent — หน้าจอแอปพลิเคชัน แสดงระบบรับสายอัตโนมัติและการจัดการ AI Agent"
             className="w-full h-auto object-contain drop-shadow-2xl"
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
           />
         </motion.div>
       </div>
