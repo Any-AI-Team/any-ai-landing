@@ -45,6 +45,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "weekly",
             priority: 0.8,
         },
+        {
+            url: `${APP_URL}/ai-call-center`,
+            lastModified: SITE_LAST_MODIFIED,
+            changeFrequency: "weekly",
+            priority: 0.95,
+        },
+        {
+            url: `${APP_URL}/ai-call-center-vs-ivr`,
+            lastModified: SITE_LAST_MODIFIED,
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
     ];
 
     // Use case pages

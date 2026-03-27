@@ -36,7 +36,7 @@ const organizationSchema = {
         "@type": "Country",
         name: "Thailand",
     },
-    description: "แพลตฟอร์ม AI Calling Agent สำหรับธุรกิจ SME ไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง",
+    description: "ANYCALL คือ AI Call Center สำหรับธุรกิจ SME ไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน Call Center 80%",
 };
 
 const websiteSchema = {
@@ -45,7 +45,7 @@ const websiteSchema = {
     "@id": `${APP_URL}/#website`,
     url: APP_URL,
     name: "ANYCALL",
-    description: "AI Calling Agent แพลตฟอร์มสำหรับธุรกิจ SME ไทย",
+    description: "AI Call Center และ AI Calling Agent แพลตฟอร์มสำหรับธุรกิจ SME ไทย",
     publisher: { "@id": `${APP_URL}/#organization` },
     potentialAction: {
         "@type": "SearchAction",
@@ -63,8 +63,8 @@ const webPageSchema = {
     "@type": "WebPage",
     "@id": `${APP_URL}/#webpage`,
     url: APP_URL,
-    name: "ANYCALL - AI Calling Agent | รับสายอัตโนมัติ 24/7",
-    description: "ANYCALL แพลตฟอร์ม AI Calling Agent รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ไม่พลาดทุกโอกาส สร้าง AI Agent ของธุรกิจคุณได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด",
+    name: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7",
+    description: "ANYCALL คือ AI Call Center สำหรับธุรกิจไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน Call Center 80% สร้าง AI Agent ได้ใน 5 นาที ไม่ต้องเขียนโค้ด",
     isPartOf: { "@id": `${APP_URL}/#website` },
     about: { "@id": `${APP_URL}/#organization` },
     primaryImageOfPage: {
@@ -84,10 +84,10 @@ const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "@id": `${APP_URL}/#software`,
-    name: "ANYCALL - AI Calling Agent",
+    name: "ANYCALL - AI Call Center",
     url: APP_URL,
     description:
-        "แพลตฟอร์ม AI Calling Agent รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง สำหรับธุรกิจ SME ไม่ต้องเขียนโค้ด",
+        "ANYCALL คือ AI Call Center รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง สำหรับธุรกิจ SME ไทย ลดต้นทุน Call Center 80% ไม่ต้องเขียนโค้ด",
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "CommunicationApplication",
     operatingSystem: "Web",
@@ -154,8 +154,8 @@ const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": `${APP_URL}/#product`,
-    name: "ANYCALL AI Calling Agent",
-    description: "ระบบ AI รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง สำหรับธุรกิจ SME ไทย ไม่ต้องเขียนโค้ด สร้าง AI Agent ได้ภายใน 5 นาที",
+    name: "ANYCALL AI Call Center",
+    description: "ANYCALL ระบบ AI Call Center รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง สำหรับธุรกิจ SME ไทย ลดต้นทุน 80% ไม่ต้องเขียนโค้ด ตั้งค่าใน 5 นาที",
     image: `${APP_URL}/og-image.png`,
     brand: {
         "@type": "Brand",
@@ -198,10 +198,10 @@ const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${APP_URL}/#service`,
-    name: "AI Calling Agent Service",
-    serviceType: "AI Voice Automation",
+    name: "AI Call Center Service",
+    serviceType: "AI Call Center, AI Voice Automation",
     provider: { "@id": `${APP_URL}/#organization` },
-    description: "บริการ AI Calling Agent รับสาย-โทรออกอัตโนมัติสำหรับธุรกิจ SME ไทย",
+    description: "บริการ AI Call Center รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมงสำหรับธุรกิจ SME ไทย ลดต้นทุน Call Center 80%",
     areaServed: {
         "@type": "Country",
         name: "Thailand",

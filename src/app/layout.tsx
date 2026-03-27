@@ -18,17 +18,19 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
 export const metadata: Metadata = {
     metadataBase: new URL(APP_URL),
     title: {
-        default: "ANYCALL - AI Calling Agent | รับสายอัตโนมัติ 24/7",
+        default: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7",
         template: "%s | ANYCALL",
     },
     description:
-        "ANYCALL แพลตฟอร์ม AI Calling Agent รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ไม่พลาดทุกโอกาส สร้าง AI Agent ของธุรกิจคุณได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด รองรับภาษาไทย-อังกฤษ",
+        "ANYCALL คือ AI Call Center สำหรับธุรกิจไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน Call Center 80% ไม่พลาดทุกโอกาส สร้าง AI Agent ได้ใน 5 นาที ไม่ต้องเขียนโค้ด รองรับภาษาไทย-อังกฤษ",
     keywords: [
         // Primary keywords
+        "AI Call Center",
+        "AI call center ไทย",
+        "ระบบ AI Call Center",
         "AI Calling Agent",
         "AI รับสาย",
         "ระบบตอบรับอัตโนมัติ",
-        "AI call center",
         "ANYCALL",
         "anyaith",
         // Secondary keywords
@@ -55,6 +57,11 @@ export const metadata: Metadata = {
         "automated phone system Thailand",
         "AI phone agent",
         "no-code AI calling",
+        // AI Call Center cluster
+        "AI call center สำหรับ SME",
+        "ระบบ call center อัตโนมัติ",
+        "call center AI ไทย",
+        "ระบบรับสายอัตโนมัติ AI",
     ],
     authors: [{ name: "ANYCALL", url: APP_URL }],
     creator: "ANYCALL",
@@ -84,9 +91,9 @@ export const metadata: Metadata = {
     },
     manifest: "/manifest.json",
     openGraph: {
-        title: "ANYCALL - AI Calling Agent | รับสายอัตโนมัติ 24/7",
+        title: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7",
         description:
-            "พลิกโฉมธุรกิจ SME ด้วย AI Calling Agent ที่รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง สร้าง AI Agent ของคุณได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด",
+            "ANYCALL คือ AI Call Center สำหรับธุรกิจไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน Call Center 80% สร้าง AI Agent ได้ใน 5 นาที ไม่ต้องเขียนโค้ด",
         url: APP_URL,
         siteName: "ANYCALL",
         locale: "th_TH",
@@ -102,9 +109,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "ANYCALL - AI Calling Agent | รับสายอัตโนมัติ 24/7",
+        title: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7",
         description:
-            "พลิกโฉมธุรกิจ SME ด้วย AI Calling Agent ที่รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ไม่ต้องเขียนโค้ด",
+            "ANYCALL คือ AI Call Center สำหรับธุรกิจไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน 80% ไม่ต้องเขียนโค้ด",
         images: ["/og-image.png"],
         creator: "@anycall_ai",
         site: "@anycall_ai",
@@ -153,8 +160,8 @@ export default function RootLayout({
             <body className={`${kanit.className} ${kanit.variable}`}>
                 <noscript>
                     <div style={{ padding: "2rem", textAlign: "center", fontFamily: "system-ui" }}>
-                        <h1>ANYCALL — AI Calling Agent สำหรับธุรกิจไทย</h1>
-                        <p>แพลตฟอร์ม AI รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ไม่พลาดทุกโอกาส สร้าง AI Agent ได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด</p>
+                        <h1>ANYCALL — AI Call Center สำหรับธุรกิจไทย</h1>
+                        <p>AI Call Center รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน Call Center 80% สร้าง AI Agent ได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด</p>
                         <p>กรุณาเปิดใช้งาน JavaScript เพื่อประสบการณ์การใช้งานที่ดีที่สุด</p>
                         <nav>
                             <a href="/">หน้าหลัก</a> | <a href="/contact">ติดต่อเรา</a> | <a href="/use-cases">Use Cases</a> | <a href="/blog">Blog</a>
