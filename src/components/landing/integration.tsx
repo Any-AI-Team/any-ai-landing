@@ -33,7 +33,7 @@ export const Integration = () => {
   const { t } = useLanguage();
 
   return (
-    <section ref={ref} className="pt-20 pb-12 md:pt-32 md:pb-20 bg-gradient-to-b from-background to-muted/20 overflow-hidden" id="platform">
+    <section ref={ref} className="pt-20 pb-12 md:pt-32 md:pb-20 bg-gradient-to-b from-background to-muted/20 overflow-hidden" id="integration" aria-label="ANYCALL เชื่อมต่อกับ CRM และแอปธุรกิจ">
       <div className="section-container">
         <div className="flex flex-col items-center text-center max-w-6xl mx-auto">
           
@@ -103,10 +103,11 @@ export const Integration = () => {
                       <div className="relative w-16 h-16 md:w-18 md:h-18 lg:w-24 lg:h-24 rounded-2xl shadow-xl backdrop-blur-sm border-2 border-white/40 dark:border-gray-700/40 overflow-hidden bg-white dark:bg-gray-800">
                       <Image
                         src={app.image}
-                        alt={app.name}
+                        alt={`ANYCALL เชื่อมต่อ ${app.name} — AI Calling Agent integration`}
                         width={96}
                         height={96}
                         className="object-cover w-full h-full"
+                        loading="lazy"
                       />
                       </div>
                     </div>

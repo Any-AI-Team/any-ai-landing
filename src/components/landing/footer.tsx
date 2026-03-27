@@ -14,7 +14,7 @@ export const Footer = () => {
         { label: "ANYCALL", href: "/" },
         { label: "ANYCHAT", href: "/#anychat" },
         { label: "ราคา", href: "/#pricing" },
-        { label: "กรณีการใช้งาน", href: "/#use-cases" },
+        { label: "กรณีการใช้งาน", href: "/use-cases" },
       ]
     },
     {
@@ -51,7 +51,7 @@ export const Footer = () => {
         { label: "ANYCALL", href: "/" },
         { label: "ANYCHAT", href: "/#anychat" },
         { label: "Pricing", href: "/#pricing" },
-        { label: "Use Cases", href: "/#use-cases" },
+        { label: "Use Cases", href: "/use-cases" },
       ]
     },
     {
@@ -101,7 +101,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background border-t border-border/50">
+    <footer className="bg-background border-t border-border/50" role="contentinfo" aria-label="ANYCALL footer navigation">
       <div className="section-container py-12 md:py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 md:gap-12">
