@@ -27,7 +27,7 @@ export const UseCases = () => {
   };
 
   return (
-    <section ref={ref} className="py-12 md:py-16 lg:py-24 bg-section-bg overflow-hidden" id="use-cases">
+    <section ref={ref} className="py-12 md:py-16 lg:py-24 bg-section-bg overflow-hidden" id="use-cases" aria-label="กรณีการใช้งาน AI Calling Agent ในธุรกิจต่างๆ">
       <div className="section-container mb-8 md:mb-12 px-4 sm:px-6 md:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

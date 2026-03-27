@@ -16,6 +16,8 @@ export const CTA = () => {
 
     return (
         <section
+            id="cta"
+            aria-label="เริ่มใช้งาน ANYCALL AI Calling Agent"
             className="relative w-full min-h-[600px] sm:min-h-[700px] md:min-h-[750px] lg:min-h-0 lg:aspect-[1440/750] bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
             style={{ backgroundImage: `url(${bgCTA.src})` }}
         >
