@@ -9,9 +9,9 @@ export const dynamic = "force-static";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
 
 export const metadata: Metadata = {
-    title: "ANYCALL - AI Calling Agent | รับสายอัตโนมัติ 24/7 สำหรับธุรกิจไทย",
+    title: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7 สำหรับธุรกิจไทย",
     description:
-        "ANYCALL แพลตฟอร์ม AI Calling Agent รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ไม่พลาดทุกโอกาส สร้าง AI Agent ของธุรกิจคุณได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด รองรับภาษาไทย-อังกฤษ เหมาะสำหรับ SME คลินิก ร้านค้า",
+        "ANYCALL คือ AI Call Center สำหรับธุรกิจไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน Call Center 80% ไม่พลาดทุกโอกาส สร้าง AI Agent ได้ใน 5 นาที ไม่ต้องเขียนโค้ด รองรับภาษาไทย-อังกฤษ เหมาะสำหรับ SME คลินิก ร้านอาหาร โรงแรม",
     alternates: {
         canonical: APP_URL,
         languages: {
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "ANYCALL - AI Calling Agent | รับสายอัตโนมัติ 24/7",
+        title: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7",
         description:
-            "พลิกโฉมธุรกิจ SME ด้วย AI Calling Agent ที่รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง สร้าง AI Agent ของคุณได้ภายใน 5 นาที ไม่ต้องเขียนโค้ด",
+            "ANYCALL คือ AI Call Center สำหรับธุรกิจไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน Call Center 80% สร้าง AI Agent ได้ใน 5 นาที ไม่ต้องเขียนโค้ด",
         url: APP_URL,
         type: "website",
         images: [
