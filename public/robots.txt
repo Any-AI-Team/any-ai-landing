@@ -1,14 +1,52 @@
+# Search Engines
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
 
+# AI Search Crawlers — GEO (Generative Engine Optimization)
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+
+# Social Media Crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+# Default
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://www.anyaith.com/sitemap.xml
+Host: https://www.anyaith.com
