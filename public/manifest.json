@@ -1,0 +1,20 @@
+{
+  "name": "ANYCALL — AI Calling Agent",
+  "short_name": "ANYCALL",
+  "description": "AI Calling Agent รับสาย-โทรออกอัตโนมัติ 24/7 สำหรับธุรกิจ SME ไทย",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007AFF",
+  "orientation": "portrait-primary",
+  "lang": "th",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
