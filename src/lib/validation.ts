@@ -1,18 +1,21 @@
 import { z } from 'zod'
 
+const PERSON_NAME_REGEX = /^[a-zA-Z\u0E00-\u0E7F\s.'-]+$/
+const COMPANY_NAME_REGEX = /^[a-zA-Z0-9\u0E00-\u0E7F\s&.,'()/-]+$/
+
 // Contact form validation schema
 export const contactFormSchema = z.object({
   firstName: z
     .string()
     .min(1, 'First name is required')
     .max(50, 'First name must be less than 50 characters')
-    .regex(/^[a-zA-Z\s'-]+$/, 'First name contains invalid characters'),
+    .regex(PERSON_NAME_REGEX, 'First name contains invalid characters'),
   
   lastName: z
     .string()
     .min(1, 'Last name is required')
     .max(50, 'Last name must be less than 50 characters')
-    .regex(/^[a-zA-Z\s'-]+$/, 'Last name contains invalid characters'),
+    .regex(PERSON_NAME_REGEX, 'Last name contains invalid characters'),
   
   email: z
     .string()
@@ -30,7 +33,7 @@ export const contactFormSchema = z.object({
     .string()
     .min(1, 'Company name is required')
     .max(100, 'Company name must be less than 100 characters')
-    .regex(/^[a-zA-Z0-9\s&.,'-]+$/, 'Company name contains invalid characters'),
+    .regex(COMPANY_NAME_REGEX, 'Company name contains invalid characters'),
   
   details: z
     .string()

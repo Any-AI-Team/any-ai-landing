@@ -3,6 +3,7 @@ import { ContactPageJsonLd } from "@/components/seo/JsonLd";
 import ContactClient from "./ContactClient";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
+const OG_IMAGE_PATH = "/missed-call-illustration.png";
 
 export const metadata: Metadata = {
     title: "ติดต่อเรา - เริ่มต้นใช้งาน AI Calling Agent",
@@ -12,7 +13,6 @@ export const metadata: Metadata = {
         canonical: `${APP_URL}/contact`,
         languages: {
             "th-TH": `${APP_URL}/contact`,
-            "en-US": `${APP_URL}/en/contact`,
         },
     },
     openGraph: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/og-image.png",
+                url: OG_IMAGE_PATH,
                 width: 1200,
                 height: 630,
                 alt: "ติดต่อ ANYCALL",

@@ -122,7 +122,6 @@ const nextConfig = {
 
   // Production optimizations
   ...(process.env.NODE_ENV === 'production' && {
-    swcMinify: true,
     compiler: {
       removeConsole: true,
     },

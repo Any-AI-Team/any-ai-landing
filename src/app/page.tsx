@@ -7,6 +7,7 @@ import HomeClient from "./HomeClient";
 export const dynamic = "force-static";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
+const OG_IMAGE_PATH = "/missed-call-illustration.png";
 
 export const metadata: Metadata = {
     title: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7 สำหรับธุรกิจไทย",
@@ -16,7 +17,6 @@ export const metadata: Metadata = {
         canonical: APP_URL,
         languages: {
             "th": APP_URL,
-            "en": `${APP_URL}/en`,
         },
     },
     openGraph: {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/og-image.png",
+                url: OG_IMAGE_PATH,
                 width: 1200,
                 height: 630,
                 alt: "ANYCALL - AI Calling Agent สำหรับธุรกิจไทย",

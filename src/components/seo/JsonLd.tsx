@@ -1,4 +1,5 @@
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
+const OG_IMAGE_URL = `${APP_URL}/missed-call-illustration.png`;
 
 const organizationSchema = {
     "@context": "https://schema.org",
@@ -69,7 +70,7 @@ const webPageSchema = {
     about: { "@id": `${APP_URL}/#organization` },
     primaryImageOfPage: {
         "@type": "ImageObject",
-        url: `${APP_URL}/og-image.png`,
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
     },
@@ -143,7 +144,7 @@ const softwareSchema = {
     ],
     screenshot: {
         "@type": "ImageObject",
-        url: `${APP_URL}/og-image.png`,
+        url: OG_IMAGE_URL,
         width: 1200,
         height: 630,
     },
@@ -156,7 +157,7 @@ const productSchema = {
     "@id": `${APP_URL}/#product`,
     name: "ANYCALL AI Call Center",
     description: "ANYCALL ระบบ AI Call Center รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง สำหรับธุรกิจ SME ไทย ลดต้นทุน 80% ไม่ต้องเขียนโค้ด ตั้งค่าใน 5 นาที",
-    image: `${APP_URL}/og-image.png`,
+    image: OG_IMAGE_URL,
     brand: {
         "@type": "Brand",
         name: "ANYCALL",

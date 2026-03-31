@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCasesData, useCaseSlugs } from "./useCasesData";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
+const OG_IMAGE_PATH = "/missed-call-illustration.png";
 
 // Static generation for all use case pages
 export function generateStaticParams() {
@@ -32,7 +33,7 @@ export async function generateMetadata({
             type: "article",
             images: [
                 {
-                    url: "/og-image.png",
+                    url: OG_IMAGE_PATH,
                     width: 1200,
                     height: 630,
                     alt: `ANYCALL — ${data.title}`,

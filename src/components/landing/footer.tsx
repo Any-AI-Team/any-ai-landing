@@ -12,16 +12,16 @@ export const Footer = () => {
       title: "ผลิตภัณฑ์",
       links: [
         { label: "ANYCALL", href: "/" },
-        { label: "ANYCHAT", href: "/#anychat" },
-        { label: "ราคา", href: "/#pricing" },
+        { label: "AI Call Center", href: "/ai-call-center" },
+        { label: "ฟีเจอร์", href: "/#features" },
         { label: "กรณีการใช้งาน", href: "/use-cases" },
       ]
     },
     {
       title: "บริษัท",
       links: [
-        { label: "เกี่ยวกับเรา", href: "/#about" },
-        { label: "ทีมงาน", href: "/#team" },
+        { label: "เกี่ยวกับ AI Call Center", href: "/ai-call-center" },
+        { label: "เปรียบเทียบกับ IVR", href: "/ai-call-center-vs-ivr" },
         { label: "บล็อก", href: "/blog" },
         { label: "ติดต่อเรา", href: "/contact" },
       ]
@@ -30,18 +30,18 @@ export const Footer = () => {
       title: "ทรัพยากร",
       links: [
         { label: "คำถามที่พบบ่อย", href: "/#faq" },
-        { label: "เอกสาร", href: "/docs" },
-        { label: "สถานะระบบ", href: "/status" },
-        { label: "ศูนย์ช่วยเหลือ", href: "/support" },
+        { label: "บทความ AI Call Center", href: "/ai-call-center" },
+        { label: "บล็อก", href: "/blog" },
+        { label: "ศูนย์ติดต่อ", href: "/contact" },
       ]
     },
     {
       title: "กฎหมาย",
       links: [
-        { label: "นโยบายความเป็นส่วนตัว", href: "/privacy" },
-        { label: "เงื่อนไขการให้บริการ", href: "/terms" },
-        { label: "นโยบายคุกกี้", href: "/cookies" },
-        { label: "PDPA", href: "/pdpa" },
+        { label: "ความปลอดภัยของข้อมูล", href: "/#security" },
+        { label: "นโยบายการใช้งาน", href: "/contact" },
+        { label: "นโยบายคุกกี้", href: "/contact" },
+        { label: "PDPA", href: "/contact" },
       ]
     },
   ] : [
@@ -49,16 +49,16 @@ export const Footer = () => {
       title: "Product",
       links: [
         { label: "ANYCALL", href: "/" },
-        { label: "ANYCHAT", href: "/#anychat" },
-        { label: "Pricing", href: "/#pricing" },
+        { label: "AI Call Center", href: "/ai-call-center" },
+        { label: "Features", href: "/#features" },
         { label: "Use Cases", href: "/use-cases" },
       ]
     },
     {
       title: "Company",
       links: [
-        { label: "About Us", href: "/#about" },
-        { label: "Team", href: "/#team" },
+        { label: "About AI Call Center", href: "/ai-call-center" },
+        { label: "AI Call Center vs IVR", href: "/ai-call-center-vs-ivr" },
         { label: "Blog", href: "/blog" },
         { label: "Contact", href: "/contact" },
       ]
@@ -67,18 +67,18 @@ export const Footer = () => {
       title: "Resources",
       links: [
         { label: "FAQ", href: "/#faq" },
-        { label: "Documentation", href: "/docs" },
-        { label: "Status", href: "/status" },
-        { label: "Support Center", href: "/support" },
+        { label: "AI Call Center Guide", href: "/ai-call-center" },
+        { label: "Blog", href: "/blog" },
+        { label: "Contact Center", href: "/contact" },
       ]
     },
     {
       title: "Legal",
       links: [
-        { label: "Privacy Policy", href: "/privacy" },
-        { label: "Terms of Service", href: "/terms" },
-        { label: "Cookie Policy", href: "/cookies" },
-        { label: "PDPA Compliance", href: "/pdpa" },
+        { label: "Data Security", href: "/#security" },
+        { label: "Terms of Service", href: "/contact" },
+        { label: "Cookie Policy", href: "/contact" },
+        { label: "PDPA Compliance", href: "/contact" },
       ]
     },
   ];
