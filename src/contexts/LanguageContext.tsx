@@ -18,7 +18,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [language, setLanguage] = useState<Language>("TH");
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [hasHydrated, setHasHydrated] = useState(false);
 
     // Load language from local storage on mount
     useEffect(() => {
@@ -26,15 +26,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         if (savedLang === "EN" || savedLang === "TH") {
             setLanguage(savedLang);
         }
-        setIsLoaded(true);
+        setHasHydrated(true);
     }, []);
 
     // Update local storage on language change
     useEffect(() => {
-        if (isLoaded) {
+        if (hasHydrated) {
             localStorage.setItem("app-language", language);
         }
-    }, [language, isLoaded]);
+    }, [language, hasHydrated]);
 
     const value = {
         language,
@@ -46,10 +46,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         features: FEATURES[language],
         faqs: FAQS[language],
     };
-
-    if (!isLoaded) {
-        return null; // Or a loading spinner if desired
-    }
 
     return (
         <LanguageContext.Provider value={value}>
