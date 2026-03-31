@@ -4,6 +4,7 @@ import Link from "next/link";
 export const dynamic = "force-static";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
+const OG_IMAGE_PATH = "/missed-call-illustration.png";
 
 export const metadata: Metadata = {
     title: "AI Call Center — ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7 | ANYCALL",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
         type: "article",
         images: [
             {
-                url: "/og-image.png",
+                url: OG_IMAGE_PATH,
                 width: 1200,
                 height: 630,
                 alt: "ANYCALL AI Call Center สำหรับธุรกิจไทย",
@@ -42,7 +43,7 @@ function AiCallCenterJsonLd() {
             datePublished: "2026-03-27",
             dateModified: "2026-03-27",
             mainEntityOfPage: `${APP_URL}/ai-call-center`,
-            image: `${APP_URL}/og-image.png`,
+            image: `${APP_URL}${OG_IMAGE_PATH}`,
             inLanguage: "th-TH",
         },
         {

@@ -1,19 +1,10 @@
 import { Providers } from "./providers";
 import "./globals.css";
 import { Navbar } from "@/components/landing/navbar";
-import { Kanit } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 
-const kanit = Kanit({
-    subsets: ["latin", "thai"],
-    weight: ["400", "500", "600", "700"],
-    variable: "--font-kanit",
-    display: "swap",
-    preload: true,
-    fallback: ["system-ui", "arial"],
-});
-
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
+const OG_IMAGE_PATH = "/missed-call-illustration.png";
 
 export const metadata: Metadata = {
     metadataBase: new URL(APP_URL),
@@ -82,7 +73,6 @@ export const metadata: Metadata = {
         canonical: APP_URL,
         languages: {
             "th-TH": APP_URL,
-            "en-US": `${APP_URL}/en`,
         },
     },
     icons: {
@@ -100,7 +90,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/og-image.png",
+                url: OG_IMAGE_PATH,
                 width: 1200,
                 height: 630,
                 alt: "ANYCALL - AI Calling Agent สำหรับธุรกิจไทย",
@@ -112,7 +102,7 @@ export const metadata: Metadata = {
         title: "ANYCALL - AI Call Center | ระบบ AI รับสาย-โทรออกอัตโนมัติ 24/7",
         description:
             "ANYCALL คือ AI Call Center สำหรับธุรกิจไทย รับสาย-โทรออกอัตโนมัติ 24 ชั่วโมง ลดต้นทุน 80% ไม่ต้องเขียนโค้ด",
-        images: ["/og-image.png"],
+        images: [OG_IMAGE_PATH],
         creator: "@anycall_ai",
         site: "@anycall_ai",
     },
@@ -150,14 +140,12 @@ export default function RootLayout({
         <html lang="th" dir="ltr">
             <head>
                 {/* DNS Prefetch & Preconnect for performance */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                 <link rel="dns-prefetch" href="//www.google-analytics.com" />
                 <link rel="dns-prefetch" href="//www.googletagmanager.com" />
                 {/* Canonical handled by Next.js metadata, but add preload for LCP image */}
-                <link rel="preload" as="image" href="/og-image.png" type="image/png" />
+                <link rel="preload" as="image" href={OG_IMAGE_PATH} type="image/png" />
             </head>
-            <body className={`${kanit.className} ${kanit.variable}`}>
+            <body>
                 <noscript>
                     <div style={{ padding: "2rem", textAlign: "center", fontFamily: "system-ui" }}>
                         <h1>ANYCALL — AI Call Center สำหรับธุรกิจไทย</h1>

@@ -14,24 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: SITE_LAST_MODIFIED,
             changeFrequency: "weekly",
             priority: 1.0,
-            alternates: {
-                languages: {
-                    th: APP_URL,
-                    en: `${APP_URL}/en`,
-                },
-            },
         },
         {
             url: `${APP_URL}/contact`,
             lastModified: SITE_LAST_MODIFIED,
             changeFrequency: "monthly",
             priority: 0.9,
-            alternates: {
-                languages: {
-                    th: `${APP_URL}/contact`,
-                    en: `${APP_URL}/en/contact`,
-                },
-            },
         },
         {
             url: `${APP_URL}/use-cases`,
@@ -78,9 +66,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Section anchors on homepage
     const sectionAnchors: MetadataRoute.Sitemap = [
         { url: `${APP_URL}/#features`, lastModified: SITE_LAST_MODIFIED, changeFrequency: "monthly", priority: 0.6 },
-        { url: `${APP_URL}/#pricing`, lastModified: SITE_LAST_MODIFIED, changeFrequency: "weekly", priority: 0.7 },
         { url: `${APP_URL}/#use-cases`, lastModified: SITE_LAST_MODIFIED, changeFrequency: "monthly", priority: 0.6 },
         { url: `${APP_URL}/#faq`, lastModified: SITE_LAST_MODIFIED, changeFrequency: "monthly", priority: 0.6 },
+        { url: `${APP_URL}/#security`, lastModified: SITE_LAST_MODIFIED, changeFrequency: "monthly", priority: 0.5 },
     ];
 
     return [...staticPages, ...useCasePages, ...blogPages, ...sectionAnchors];
