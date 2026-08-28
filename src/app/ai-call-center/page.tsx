@@ -317,22 +317,28 @@ export default function AiCallCenterPage() {
                             </div>
                         ))}
                     </div>
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white">
-                        <h3 className="text-xl font-bold mb-2">พร้อมเปลี่ยนธุรกิจด้วย AI Call Center?</h3>
-                        <p className="text-white/90 mb-6">เริ่มต้นฟรี ไม่ต้องใส่บัตรเครดิต ตั้งค่าเสร็จใน 5 นาที</p>
-                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                            <Link
-                                href="/contact"
-                                className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
-                            >
-                                ทดลองใช้ฟรี
-                            </Link>
-                            <Link
-                                href="/#pricing"
-                                className="border border-white/50 text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
-                            >
-                                ดูราคา
-                            </Link>
+                    <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl p-8 text-center text-white">
+                        <div className="absolute inset-0 overflow-hidden">
+                            <div className="absolute -top-1/2 -left-1/4 w-72 h-72 bg-brand-blue/10 rounded-full blur-3xl" />
+                            <div className="absolute -bottom-1/2 -right-1/4 w-72 h-72 bg-brand-purple/10 rounded-full blur-3xl" />
+                        </div>
+                        <div className="relative">
+                            <h3 className="text-xl font-bold mb-2">พร้อมเปลี่ยนธุรกิจด้วย AI Call Center?</h3>
+                            <p className="text-white/80 mb-6">เริ่มต้นฟรี ไม่ต้องใส่บัตรเครดิต ตั้งค่าเสร็จใน 5 นาที</p>
+                            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                                <Link
+                                    href="/contact"
+                                    className="bg-white text-gray-900 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
+                                >
+                                    ทดลองใช้ฟรี
+                                </Link>
+                                <Link
+                                    href="/#pricing"
+                                    className="border border-white/50 text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
+                                >
+                                    ดูราคา
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -361,13 +367,13 @@ export default function AiCallCenterPage() {
                 <section className="bg-muted/30 rounded-2xl p-6 border border-border/50">
                     <h2 className="text-lg font-semibold text-foreground mb-4">บทความที่เกี่ยวข้อง</h2>
                     <ul className="space-y-2 text-sm">
-                        <li><Link href="/blog/ai-calling-agent-คืออะไร" className="text-primary hover:underline">AI Calling Agent คืออะไร? ทำไมธุรกิจ SME ต้องมี</Link></li>
-                        <li><Link href="/blog/ai-vs-ivr-เปรียบเทียบ" className="text-primary hover:underline">เปรียบเทียบ AI Calling Agent vs IVR ระบบไหนดีกว่า?</Link></li>
+                        <li><Link href="/blog/what-is-ai-calling-agent" className="text-primary hover:underline">AI Calling Agent คืออะไร? ทำไมธุรกิจ SME ต้องมี</Link></li>
+                        <li><Link href="/blog/ai-calling-agent-vs-ivr" className="text-primary hover:underline">เปรียบเทียบ AI Calling Agent vs IVR ระบบไหนดีกว่า?</Link></li>
                         <li><Link href="/ai-call-center-vs-ivr" className="text-primary hover:underline">เปรียบเทียบ AI Call Center vs ระบบ IVR แบบละเอียด</Link></li>
-                        <li><Link href="/blog/ai-call-center-คืออะไร" className="text-primary hover:underline">AI Call Center คืออะไร? ทำไมธุรกิจไทยควรเปลี่ยนมาใช้</Link></li>
-                        <li><Link href="/blog/ทำไมธุรกิจไทยต้องใช้-ai-call-center" className="text-primary hover:underline">ทำไมธุรกิจไทยต้องใช้ AI Call Center ใน 2026</Link></li>
-                        <li><Link href="/use-cases/dental-clinic" className="text-primary hover:underline">AI Call Center สำหรับคลินิกทันตกรรม</Link></li>
-                        <li><Link href="/use-cases/restaurant" className="text-primary hover:underline">AI Call Center สำหรับร้านอาหาร</Link></li>
+                        <li><Link href="/blog/what-is-ai-call-center" className="text-primary hover:underline">AI Call Center คืออะไร? ทำไมธุรกิจไทยควรเปลี่ยนมาใช้</Link></li>
+                        <li><Link href="/blog/why-thai-business-need-ai-call-center-2026" className="text-primary hover:underline">ทำไมธุรกิจไทยต้องใช้ AI Call Center ใน 2026</Link></li>
+                        <li><Link href="/blog/ai-call-center-dental-clinic" className="text-primary hover:underline">AI Call Center สำหรับคลินิกทันตกรรม</Link></li>
+                        <li><Link href="/blog/ai-call-center-restaurant" className="text-primary hover:underline">AI Call Center สำหรับร้านอาหาร</Link></li>
                     </ul>
                 </section>
             </article>

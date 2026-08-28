@@ -38,10 +38,10 @@ export const Footer = () => {
     {
       title: "กฎหมาย",
       links: [
-        { label: "ความปลอดภัยของข้อมูล", href: "/#security" },
-        { label: "นโยบายการใช้งาน", href: "/contact" },
-        { label: "นโยบายคุกกี้", href: "/contact" },
-        { label: "PDPA", href: "/contact" },
+        { label: "ความปลอดภัยของข้อมูล", href: "/security" },
+        { label: "เงื่อนไขการให้บริการ", href: "/terms" },
+        { label: "นโยบายคุกกี้", href: "/cookies" },
+        { label: "PDPA", href: "/pdpa" },
       ]
     },
   ] : [
@@ -75,10 +75,10 @@ export const Footer = () => {
     {
       title: "Legal",
       links: [
-        { label: "Data Security", href: "/#security" },
-        { label: "Terms of Service", href: "/contact" },
-        { label: "Cookie Policy", href: "/contact" },
-        { label: "PDPA Compliance", href: "/contact" },
+        { label: "Data Security", href: "/security" },
+        { label: "Terms of Service", href: "/terms" },
+        { label: "Cookie Policy", href: "/cookies" },
+        { label: "PDPA Compliance", href: "/pdpa" },
       ]
     },
   ];
