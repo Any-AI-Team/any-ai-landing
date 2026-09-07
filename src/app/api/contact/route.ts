@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Ratelimit } from '@upstash/ratelimit'
+import { Redis } from '@upstash/redis'
 import { contactFormSchema, sanitizeInput, validateNoSQLInjection, RATE_LIMIT_CONFIG } from '@/lib/validation'
 import { Resend } from 'resend'
 
@@ -48,12 +49,11 @@ class MemoryRateLimit {
 }
 
 // Initialize rate limiting
-let ratelimit: any
+let ratelimit: Ratelimit | MemoryRateLimit
 
 try {
   if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
     // Use Upstash Redis in production
-    const { Redis } = require('@upstash/redis')
     const redis = new Redis({
       url: process.env.UPSTASH_REDIS_REST_URL,
       token: process.env.UPSTASH_REDIS_REST_TOKEN,
