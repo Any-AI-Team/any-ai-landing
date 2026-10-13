@@ -62,35 +62,6 @@ const CallScreen = () => (
       
       <p className="text-white text-xl font-medium mb-2">Incoming Call</p>
       <p className="text-gray-400 text-sm mb-8">+66 81 234 5678</p>
-      
-
-
-      {/* Language Flags */}
-      <div className="flex gap-3 mb-4">
-        <motion.div
-          className="text-2xl"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity, delay: 0 }}
-        >
-          🇹🇭
-        </motion.div>
-        <motion.div
-          className="text-2xl"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-        >
-          🇺🇸
-        </motion.div>
-        <motion.div
-          className="text-2xl"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-        >
-          🇨🇳
-        </motion.div>
-      </div>
-
-
     </div>
   </div>
 );

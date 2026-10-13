@@ -20,10 +20,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const [language, setLanguage] = useState<Language>("TH");
     const [hasHydrated, setHasHydrated] = useState(false);
 
-    // Load language from local storage on mount
+    // Load language from local storage on mount (after hydration, to avoid an SSR mismatch)
     useEffect(() => {
         const savedLang = localStorage.getItem("app-language") as Language;
         if (savedLang === "EN" || savedLang === "TH") {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setLanguage(savedLang);
         }
         setHasHydrated(true);

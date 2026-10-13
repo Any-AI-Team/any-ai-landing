@@ -71,7 +71,7 @@ export default function AiCallCenterVsIvrPage() {
                 </h1>
 
                 <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-                    ธุรกิจไทยหลายแห่งกำลังตัดสินใจระหว่าง <strong>AI Call Center</strong> กับ <strong>IVR (Interactive Voice Response)</strong> บทความนี้เปรียบเทียบทั้งสองระบบอย่างละเอียด ช่วยให้คุณเลือกได้ถูกต้อง
+                    ลูกค้าโทรเข้ามา ฟังเมนูเสียงยาวๆ กด 1 กด 2 กด 0 แล้วรอสาย... จนวางหูไปในที่สุด — นี่คือประสบการณ์ที่ธุรกิจจำนวนมากยังมอบให้ลูกค้าอยู่ทุกวันโดยไม่รู้ตัวว่ากำลังเสียโอกาสไปเรื่อยๆ ธุรกิจไทยหลายแห่งกำลังตัดสินใจระหว่าง <strong>AI Call Center</strong> กับ <strong>IVR (Interactive Voice Response)</strong> บทความนี้เปรียบเทียบทั้งสองระบบอย่างละเอียดในทุกมิติ ตั้งแต่ประสบการณ์ลูกค้า ต้นทุนที่มองเห็นและมองไม่เห็น ไปจนถึงความสามารถในการทำงานจริง ช่วยให้คุณเลือกระบบที่เหมาะกับธุรกิจได้ถูกต้อง
                 </p>
 
                 <section className="mb-12">
@@ -137,6 +137,23 @@ export default function AiCallCenterVsIvrPage() {
                 </section>
 
                 <section className="mb-12">
+                    <h2 className="text-2xl font-bold text-foreground mb-4">ต้นทุนที่มองไม่เห็นของ IVR</h2>
+                    <p className="text-base text-muted-foreground mb-4 leading-relaxed">
+                        ตัวเลขค่าใช้จ่าย IVR ในใบเสนอราคาไม่ได้บอกต้นทุนทั้งหมด เพราะทุกครั้งที่ลูกค้ากด 0 เพื่อขอคุยกับคนจริงเนื่องจาก IVR ตอบโจทย์ไม่ได้ งานนั้นก็ยังตกไปอยู่ที่พนักงานอยู่ดี แถมลูกค้ายังหงุดหงิดสะสมมาก่อนแล้วจากการฟังเมนูยาวๆ ยิ่งไปกว่านั้น ธุรกิจที่มีลูกค้าโทรเข้ามาพร้อมกันหลายสายในเวลาเดียวกัน IVR ก็ยังต้องมีคิวรอเหมือนเดิม เพราะสุดท้ายก็ต้องพึ่งพนักงานจริงในการดำเนินการต่อ
+                    </p>
+                    <p className="text-base text-muted-foreground mb-4 leading-relaxed">
+                        ในทางกลับกัน AI Call Center ดูดซับคำถามและงานส่วนใหญ่ไว้ตั้งแต่ต้นสาย ไม่ว่าจะมีกี่สายเข้ามาพร้อมกันก็ตาม เหลือให้พนักงานจริงจัดการเฉพาะเคสที่ซับซ้อนหรือต้องใช้ดุลยพินิจของคนเท่านั้น ทำให้ต้นทุนต่อสายโดยรวมต่ำกว่าอย่างมีนัยสำคัญเมื่อเทียบในระยะยาว
+                    </p>
+                </section>
+
+                <section className="mb-12">
+                    <h2 className="text-2xl font-bold text-foreground mb-4">มุมมองจากประสบการณ์ลูกค้า (Customer Experience)</h2>
+                    <p className="text-base text-muted-foreground mb-4 leading-relaxed">
+                        ลองเปรียบเทียบสองสถานการณ์ ลูกค้าคนหนึ่งโทรหาธุรกิจที่ใช้ IVR ต้องฟังเมนู 4-5 ตัวเลือก กดผิดต้องเริ่มใหม่ สุดท้ายรอสายเพื่อคุยกับคนอยู่ดี ส่วนลูกค้าอีกคนโทรหาธุรกิจที่ใช้ AI Call Center พูดสิ่งที่ต้องการได้ทันที เช่น &quot;อยากจองโต๊ะพรุ่งนี้ 6 โมงเย็นสำหรับ 4 คน&quot; แล้ว AI ก็จัดการให้เสร็จภายในบทสนทนาเดียว ความแตกต่างของประสบการณ์นี้ส่งผลโดยตรงต่อความพึงพอใจ อัตราการกลับมาใช้บริการซ้ำ และการบอกต่อของลูกค้า
+                    </p>
+                </section>
+
+                <section className="mb-12">
                     <h2 className="text-2xl font-bold text-foreground mb-4">สรุป: AI Call Center ดีกว่า IVR สำหรับ SME ไทย</h2>
                     <p className="text-base text-muted-foreground mb-6 leading-relaxed">
                         สำหรับธุรกิจ SME ไทยที่ต้องการระบบรับสายที่ฉลาด ราคาประหยัด ตั้งค่าเร็ว และให้ประสบการณ์ลูกค้าที่ดี <strong>AI Call Center เป็นตัวเลือกที่ดีกว่า IVR</strong> อย่างชัดเจน โดยเฉพาะเมื่อมีโซลูชันอย่าง ANYCALL ที่ให้เริ่มต้นฟรีและตั้งค่าเสร็จภายใน 5 นาที
@@ -157,8 +174,8 @@ export default function AiCallCenterVsIvrPage() {
                     <h2 className="text-lg font-semibold text-foreground mb-4">อ่านเพิ่มเติม</h2>
                     <ul className="space-y-2 text-sm">
                         <li><Link href="/ai-call-center" className="text-primary hover:underline">AI Call Center — คู่มือฉบับสมบูรณ์</Link></li>
-                        <li><Link href="/blog/ai-call-center-คืออะไร" className="text-primary hover:underline">AI Call Center คืออะไร? ทำไมธุรกิจไทยควรเปลี่ยนมาใช้</Link></li>
-                        <li><Link href="/blog/ai-vs-ivr-เปรียบเทียบ" className="text-primary hover:underline">AI Calling Agent vs IVR เปรียบเทียบ</Link></li>
+                        <li><Link href="/blog/what-is-ai-call-center" className="text-primary hover:underline">AI Call Center คืออะไร? ทำไมธุรกิจไทยควรเปลี่ยนมาใช้</Link></li>
+                        <li><Link href="/blog/ai-calling-agent-vs-ivr" className="text-primary hover:underline">AI Calling Agent vs IVR เปรียบเทียบ</Link></li>
                     </ul>
                 </section>
             </article>

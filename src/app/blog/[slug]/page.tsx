@@ -97,9 +97,9 @@ export default async function BlogPost({
             />
 
             <main className="min-h-screen bg-white pt-20 md:pt-24">
-                <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+                <article className="max-w-3xl mx-auto px-4 sm:px-6 py-16 md:py-24">
                     {/* Header */}
-                    <header className="mb-8 md:mb-12">
+                    <header className="mb-12 md:mb-16">
                         <div className="flex items-center gap-3 text-sm text-gray-500 mb-4">
                             <Link href="/blog" className="hover:text-blue-600 transition-colors">
                                 Blog
@@ -107,9 +107,12 @@ export default async function BlogPost({
                             <span>/</span>
                             <span>{post.category}</span>
                         </div>
-                        <h1 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+                        <h1 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight mb-3">
                             {post.title}
                         </h1>
+                        <p className="text-base md:text-lg text-gray-500 leading-relaxed mb-4">
+                            {post.subtitle}
+                        </p>
                         <div className="flex items-center gap-4 text-sm text-gray-500">
                             <time dateTime={post.date}>
                                 {new Date(post.date).toLocaleDateString("th-TH", {
@@ -124,7 +127,7 @@ export default async function BlogPost({
 
                     {/* Content */}
                     <div
-                        className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-a:text-blue-600 prose-table:text-sm"
+                        className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-h2:mt-16 prose-h2:mb-6 prose-h2:first:mt-0 prose-h3:mt-12 prose-h3:mb-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-ul:my-6 prose-ol:my-6 prose-li:text-gray-700 prose-li:my-3 prose-li:leading-relaxed prose-a:text-blue-600 prose-table:text-sm"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 

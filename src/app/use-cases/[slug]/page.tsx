@@ -6,6 +6,12 @@ import { useCasesData, useCaseSlugs } from "./useCasesData";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://www.anyaith.com";
 const OG_IMAGE_PATH = "/missed-call-illustration.png";
 
+// Deep-dive blog articles that pair with specific use cases
+const relatedBlogSlugs: Record<string, { slug: string; title: string }> = {
+    "dental-clinic": { slug: "ai-call-center-dental-clinic", title: "AI Call Center สำหรับคลินิกทันตกรรม: ลดสายหลุด เพิ่มนัดหมาย ไม่ต้องจ้าง staff เพิ่ม" },
+    restaurant: { slug: "ai-call-center-restaurant", title: "AI Call Center สำหรับร้านอาหาร: จองโต๊ะอัตโนมัติ ไม่พลาดลูกค้าแม้ช่วง Rush Hour" },
+};
+
 // Static generation for all use case pages
 export function generateStaticParams() {
     return useCaseSlugs.map((slug) => ({ slug }));
@@ -80,6 +86,7 @@ export default async function UseCasePage({
     };
 
     const otherUseCases = useCaseSlugs.filter((s) => s !== slug);
+    const relatedBlog = relatedBlogSlugs[slug];
 
     return (
         <>
@@ -211,6 +218,22 @@ export default async function UseCasePage({
                         </Link>
                     </div>
                 </section>
+
+                {/* Related deep-dive article — Internal Linking */}
+                {relatedBlog && (
+                    <section className="py-10 px-4 sm:px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <Link
+                                href={`/blog/${relatedBlog.slug}`}
+                                className="block p-6 bg-blue-50 border border-blue-100 rounded-2xl hover:border-blue-300 hover:shadow-md transition-all"
+                            >
+                                <span className="text-xs text-blue-600 font-medium">อ่านบทความเจาะลึก</span>
+                                <h3 className="font-semibold text-gray-900 mt-1">{relatedBlog.title}</h3>
+                                <p className="text-sm text-blue-600 mt-2">อ่านต่อ →</p>
+                            </Link>
+                        </div>
+                    </section>
+                )}
 
                 {/* Other Use Cases — Internal Linking */}
                 <section className="py-12 md:py-16 px-4 sm:px-6 bg-gray-50">
