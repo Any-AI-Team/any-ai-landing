@@ -130,6 +130,7 @@ const nextConfig = {
   // Experimental performance
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
+    agentUpgrade: "security",
   },
 };
 
